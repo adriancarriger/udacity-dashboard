@@ -1,10 +1,10 @@
-# Udacity Transportation
+# Udacity Dashboard
 
 This is my fourth of five projects in the Udacity [Senior Web Developer Nanodegree](https://www.udacity.com/course/senior-web-developer-nanodegree--nd802) program. This is a work in progress.
 
 ## Description
 
-An app that allows users to select a departure and arrival train station and meet the other [requirements](REQUIREMENTS.md) of the course.
+A corporate dashboard app.
 
 ## Tech Stack
 
