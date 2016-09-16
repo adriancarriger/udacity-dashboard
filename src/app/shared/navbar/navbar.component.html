@@ -1,0 +1,40 @@
+<nav
+	id="navbar"
+	class="navbar navbar-default">
+	<div [ngClass]="{'darker': !isCollapsed}">
+		<button (click)="skipNavigation()" [attr.tabindex]="tabIndex ? 1 : null" class="skip-nav btn">Skip to main content</button>
+		<div class="navbar-header">
+			<a
+				aria-label="Home"
+				[attr.tabindex]="tabIndex ? tabIndex : null"
+				[routerLink]="['/']"
+				class="navbar-brand ion-paper-airplane">
+			</a>
+			<button
+				type="button"
+				class="navbar-toggle"
+				(click)="isCollapsed = !isCollapsed"
+				aria-label="Toggle navigation options">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div [ngClass]="{'not-collapsed': !isCollapsed}" class="mobile-collapse" >
+			<ul class="nav navbar-nav">
+        <li role="menuitem">
+					<a
+						[attr.tabindex]="tabIndex ? tabIndex : null"
+						[routerLink]="['/']">Item 1</a>
+        </li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div
+	#startOfContent
+	id="start-of-content"
+	(blur)="startContentBlur()"
+	aria-label="You have skipped to the main content"
+	[attr.tabindex]="startContentIndex"></div>
