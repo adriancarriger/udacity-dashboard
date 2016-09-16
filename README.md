@@ -2,6 +2,10 @@
 
 This is my fourth of five projects in the Udacity [Senior Web Developer Nanodegree](https://www.udacity.com/course/senior-web-developer-nanodegree--nd802) program. This is a work in progress.
 
+## Demo
+
+Checkout the demo at: [https://adriancarriger.github.io/udacity-dashboard/](https://adriancarriger.github.io/udacity-dashboard/)
+
 ## Description
 
 A corporate dashboard app.
