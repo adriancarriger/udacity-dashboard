@@ -84,7 +84,7 @@
 			width: 100%;
 			background-color: $primaryColor;
 			&:active, &.active-route {
-				border-right: $activeWidth white solid;
+				border-right: $activeWidth #001dff solid;
 			}
 			.navbar-brand {
 				color: white;
