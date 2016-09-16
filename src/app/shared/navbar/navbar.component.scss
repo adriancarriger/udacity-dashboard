@@ -1,10 +1,45 @@
 @import '../../styles/variables';
+:host {
+	min-height: 100%;
+}
+.skip-nav {
+	position: absolute;
+	left: -1000%;
+	&:focus {
+		position: fixed;
+		top: 2px;
+		left: 2px;
+		z-index: 99999;
+		padding: 10px;
+		font-size: 20px;
+		height: 60px;
+		color: white;
+		background-color: $primaryColor;
+	}
+}
+.header {
+	position: absolute;
+	left: $navWidth;
+	right: 0;
+	top: 0;
+	background-color: $lighterPrimary;
+	color: white;
+	height: $headerHeight;
+	h1 {
+		margin: 0;
+		font-size: 36px;
+    height: $headerHeight;
+    padding-top: 20px;
+    padding-left: 20px;
+	}
+}
 .navbar {
-	background-color: $primaryColor;
+	background-color: white;
 	border: none;
+	
 	border-radius: 0;
 	margin-bottom: 0;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -12,26 +47,25 @@
 	a {
 		cursor: pointer;
 	}
-	.skip-nav {
-		position: absolute;
-		left: -1000%;
-		&:focus {
-			position: fixed;
-			top: 2px;
-			left: 2px;
-			z-index: 99999;
-			padding: 10px;
-			font-size: 20px;
-			height: 60px;
-			color: white;
-			background-color: $primaryColor;
-		}
-	}
-
 	&.navbar-default {
 		.navbar-brand, .navbar-nav > li > a {
-			color: white;
+			color: gray;
 			margin: 5px 0;
+			position: relative;
+			$iconSize: 25px;
+			padding-left: $iconSize + 10px;
+			margin-left: 20px;
+			margin-right: 20px;
+			font-size: 16px;
+			&::before {
+				position: absolute;
+				left: 5px;
+				font-size: $iconSize;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				height: $iconSize;
+			}
 			@media (max-width: 767px) {
 				margin: 15px;
 			}
@@ -41,8 +75,16 @@
 		}
 		.navbar-nav {
 			margin: 0;
-			@media (max-width: 767px) {
-				li {
+			width: 100%;
+			li {
+				width: 100%;
+				border-bottom: 1px solid $lightGray;
+				a {
+					&:focus {
+						outline: solid $lightGray 2px;
+					}
+				}
+				@media (max-width: 767px) {
 					border-top: 1px solid white;
 					&:last-of-type {
 						border-bottom: 1px solid white;
@@ -50,18 +92,30 @@
 				}
 			}
 		}
-		.navbar-brand {
-			padding: 12px 15px;
-			padding-top: 4px;
-			font-size: 35px;
-			@media (max-width: 767px) {
-				padding: 0px 12px;
-				padding-top: 5px;
-				font-size: 42px;
-				margin: 8px;
-				margin-top: 5px;
-				height: 51px;
+		.navbar-header {
+			height: $headerHeight;
+			width: 100%;
+			background-color: $primaryColor;
+			.navbar-brand {
+				color: white;
+				@media (max-width: 767px) {
+					padding: 0px 12px;
+					padding-top: 5px;
+					font-size: 42px;
+					margin: 8px;
+					margin-top: 5px;
+					height: 51px;
+				}
 			}
+		}
+		.nav-links {
+			position: absolute;
+			top: $headerHeight;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			border: none;
+			border-right: 1px solid $lightGray;
 		}
 	}
 	.navbar-pull-right {

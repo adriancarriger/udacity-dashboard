@@ -1,32 +1,48 @@
+<button (click)="skipNavigation()" [attr.tabindex]="tabIndex ? 1 : null" class="skip-nav btn">Skip to main content</button>
+<div class="header">
+	<button
+		type="button"
+		class="navbar-toggle"
+		(click)="isCollapsed = !isCollapsed"
+		aria-label="Toggle navigation options">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+</div>
 <nav
 	id="navbar"
 	class="navbar navbar-default">
 	<div [ngClass]="{'darker': !isCollapsed}">
-		<button (click)="skipNavigation()" [attr.tabindex]="tabIndex ? 1 : null" class="skip-nav btn">Skip to main content</button>
 		<div class="navbar-header">
 			<a
 				aria-label="Home"
 				[attr.tabindex]="tabIndex ? tabIndex : null"
 				[routerLink]="['/']"
 				class="navbar-brand ion-paper-airplane">
+				Dashboard
 			</a>
-			<button
-				type="button"
-				class="navbar-toggle"
-				(click)="isCollapsed = !isCollapsed"
-				aria-label="Toggle navigation options">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
 		</div>
-		<div [ngClass]="{'not-collapsed': !isCollapsed}" class="mobile-collapse" >
+		<div [ngClass]="{'not-collapsed': !isCollapsed}" class="nav-links mobile-collapse" >
 			<ul class="nav navbar-nav">
         <li role="menuitem">
 					<a
 						[attr.tabindex]="tabIndex ? tabIndex : null"
-						[routerLink]="['/']">Item 1</a>
+						[routerLink]="['/']"
+						class="ion-ios-world-outline">Geospatial</a>
+        </li>
+				<li role="menuitem">
+					<a
+						[attr.tabindex]="tabIndex ? tabIndex : null"
+						[routerLink]="['/']"
+						class="ion-ios-analytics-outline">Key metrics</a>
+        </li>
+				<li role="menuitem">
+					<a
+						[attr.tabindex]="tabIndex ? tabIndex : null"
+						[routerLink]="['/']"
+						class="ion-arrow-graph-up-right">Analytics</a>
         </li>
 			</ul>
 		</div>

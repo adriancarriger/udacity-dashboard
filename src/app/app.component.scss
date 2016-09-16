@@ -2,19 +2,13 @@
 html, body {
   height: 100%;
 }
-.header {
-  position: fixed;
-  top: 0;
-  left: $navWidth;
-  right: 0;
-  width: 100%;
-  background-color: yellow;
-  height: $headerHeight;
-  h1 {
-    margin: 0;
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  .content-container {
+    padding: 10px;
+    padding-top: $headerHeight + 10px;
+    margin-left: $navWidth;
+    width: calc(100% - #{$navWidth});
   }
-}
-.content-container {
-  margin-left: $navWidth;
-  margin-top: $headerHeight; 
 }
