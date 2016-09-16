@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
+import { GeospacialModule } from './geospacial/geospacial.module';
+import { AnalyticsModule } from './analytics/analytics.module';
+import { KeyMetricsModule } from './key-metrics/key-metrics.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,10 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     RouterModule.forRoot(routes),
     SharedModule.forRoot(),
+    HomeModule,
+    GeospacialModule,
+    AnalyticsModule,
+    KeyMetricsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

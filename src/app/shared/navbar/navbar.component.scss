@@ -17,22 +17,6 @@
 		background-color: $primaryColor;
 	}
 }
-.header {
-	position: absolute;
-	left: $navWidth;
-	right: 0;
-	top: 0;
-	background-color: $lighterPrimary;
-	color: white;
-	height: $headerHeight;
-	h1 {
-		margin: 0;
-		font-size: 36px;
-    height: $headerHeight;
-    padding-top: 20px;
-    padding-left: 20px;
-	}
-}
 .navbar {
 	background-color: white;
 	border: none;
@@ -50,12 +34,11 @@
 	&.navbar-default {
 		.navbar-brand, .navbar-nav > li > a {
 			color: gray;
-			margin: 5px 0;
+			width: 92%;
+    	margin: 5px 4%;
 			position: relative;
 			$iconSize: 25px;
 			padding-left: $iconSize + 10px;
-			margin-left: 20px;
-			margin-right: 20px;
 			font-size: 16px;
 			&::before {
 				position: absolute;
@@ -67,20 +50,24 @@
 				height: $iconSize;
 			}
 			@media (max-width: 767px) {
-				margin: 15px;
+				// margin: 15px;
 			}
-			&:focus {
+			&:focus:not(:active) {
 				outline: $whiteOutline;
 			}
 		}
+		$activeWidth: 4px;
 		.navbar-nav {
 			margin: 0;
 			width: 100%;
 			li {
 				width: 100%;
 				border-bottom: 1px solid $lightGray;
+				&:active, &.active-route {
+					border-right: $activeWidth $primaryColor solid;
+				}
 				a {
-					&:focus {
+					&:focus:not(:active) {
 						outline: solid $lightGray 2px;
 					}
 				}
@@ -96,16 +83,19 @@
 			height: $headerHeight;
 			width: 100%;
 			background-color: $primaryColor;
+			&:active, &.active-route {
+				border-right: $activeWidth white solid;
+			}
 			.navbar-brand {
 				color: white;
-				@media (max-width: 767px) {
-					padding: 0px 12px;
-					padding-top: 5px;
-					font-size: 42px;
-					margin: 8px;
-					margin-top: 5px;
-					height: 51px;
-				}
+				// @media (max-width: 767px) {
+				// 	padding: 0px 12px;
+				// 	padding-top: 5px;
+				// 	font-size: 42px;
+				// 	margin: 8px;
+				// 	margin-top: 5px;
+				// 	height: 51px;
+				// }
 			}
 		}
 		.nav-links {
@@ -118,12 +108,26 @@
 			border-right: 1px solid $lightGray;
 		}
 	}
-	.navbar-pull-right {
-		float: right;
+}
+.header {
+	position: absolute;
+	left: $navWidth;
+	right: 0;
+	top: 0;
+	background-color: $lighterPrimary;
+	color: white;
+	height: $headerHeight;
+	h1 {
+		margin: 0;
+		font-size: 36px;
+    height: $headerHeight;
+    padding-top: 20px;
+    padding-left: 20px;
 	}
 	// Nav collapse button
 	.navbar-toggle {
 		border: none;
+		position: relative;
 		&:focus {
 			outline: $whiteOutline;
 		}
@@ -138,6 +142,40 @@
 		}
 		@media (max-width: 768px) {
 			margin-top: 14px;
+		}
+	}
+	.search-container {
+		position: absolute;
+		right: 15px;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		height: 30px;
+		i {
+			position: absolute;
+			color: white;
+			
+			margin: auto;
+			top: 0;
+			bottom: 6px;
+			height: 20px;
+			left: 7px;
+			font-size: 20px;	
+		}
+		.search {
+			border-radius: 15px;
+			border: none;
+			color: gray;
+			font-size: 15px;
+    	padding: 5px 30px;
+			background-color: $fadedPrimary;
+			outline: none;
+			&:focus {
+				background-color: white;
+				& + i {
+					color: gray;
+				}
+			}
 		}
 	}
 }
