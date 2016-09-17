@@ -65,6 +65,9 @@
 				border-bottom: 1px solid $lightGray;
 				&:active, &.active-route {
 					border-right: $activeWidth $primaryColor solid;
+					a {
+						color: $primaryColor;
+					}
 				}
 				a {
 					&:focus:not(:active) {
