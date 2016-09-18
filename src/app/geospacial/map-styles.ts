@@ -33,7 +33,7 @@ export const MapStyles = [
     "featureType": "administrative.country",
     "elementType": "geometry",
     "stylers": [
-      { "visibility": "off" }
+      { "color": "#9d9c9b" }
     ]
   }, {
     "featureType": "administrative.locality",

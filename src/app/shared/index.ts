@@ -3,3 +3,4 @@
  */
 export { NavbarComponent } from './navbar/index';
 export { CroppedImageComponent } from './cropped-image/index';
+export { ApiService } from './api/index';

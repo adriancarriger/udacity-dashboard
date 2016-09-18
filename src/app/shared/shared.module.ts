@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/index';
 import { CroppedImageComponent } from './cropped-image/index';
+import { ApiService } from './api/api.service';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -32,7 +33,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
-        
+        ApiService
       ]
     };
   }

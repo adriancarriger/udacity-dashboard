@@ -4,17 +4,23 @@
 </div>
 <div class="map" #map [ngClass]="{'loaded': mapMeta.loaded}">
   <sebm-google-map
-    (idle)="onIdle(); mapMeta.loaded = true"
-    [latitude]="mapMeta.current.lat"
-    [longitude]="mapMeta.current.lng"
+    (idle)="updateLabels(); mapMeta.loaded = true"
+    [latitude]="mapMeta.lat"
+    [longitude]="mapMeta.lng"
     [zoom]="mapMeta.zoom"
     [disableDefaultUI]="true"
     [scrollwheel]="false"
     [zoomControl]="true"
     [styles]="mapMeta.styles"
     [style.height]="mapMeta.height">
-    <sebm-google-map-info-window [latitude]="testingBranch.lat" [longitude]="testingBranch.lng" [disableAutoPan]="true" [isOpen]="true">
-      <div #branchContainer class="branch-container">
+    <sebm-google-map-info-window
+      *ngFor="let branch of apiService.branches"
+      #branches
+      [latitude]="branch.lat"
+      [longitude]="branch.lng"
+      [disableAutoPan]="true"
+      [isOpen]="true">
+      <div class="branch-container">
         <div class="branch-employees">24</div>
         <div class="branch-name">Scranton</div>
       </div>

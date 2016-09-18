@@ -1,5 +1,7 @@
-import { Component, ViewChild, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { MapStyles } from './map-styles';
+
+import { ApiService } from '../shared/index';
 
 @Component({
   selector: 'app-geospacial',
@@ -9,32 +11,33 @@ import { MapStyles } from './map-styles';
 })
 export class GeospacialComponent {
   @ViewChild('map') map;
-  @ViewChild('branchContainer') branchContainer;
+  @ViewChildren('branches') branches;
   public isCollapsed: boolean = true;
   public mapMeta = {
-    current: {
-      lat: 41.4090,
-      lng: -75.6624
-    },
+    lat: 41.4090,
+    lng: -75.6624,
     zoom: 6,
-    height: '500px',
+    height: undefined,
     styles: MapStyles,
     loaded: false
   }
-  public testingBranch = { // Scranton
-    lat: 41.4090,
-    lng: -75.6624
-  }
 
+  constructor(public apiService: ApiService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  public ngOnInit(): void {
     this.mapMeta.height = (window.innerHeight - this.map.nativeElement.offsetTop) + 'px';
   }
 
-  onIdle() {
-    this.branchContainer.nativeElement.parentElement.parentElement.parentElement.previousSibling.classList.add("map-label");
+  public ngAfterViewInit(): void {
+    this.branches.changes.subscribe(children => {
+      setTimeout( () => this.updateLabels(), 0);
+    });
+  }
+
+  public updateLabels(): void {
+    this.branches.forEach(branch => {
+      branch.content.parentElement.parentElement.previousSibling.classList.add("map-label");
+    });
   }
 
 }
