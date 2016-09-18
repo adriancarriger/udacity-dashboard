@@ -6,6 +6,7 @@ export class ApiService {
     {
       name: 'Scranton',
       state: 'PA',
+      employees: 24,
       lat: 41.4090,
       lng: -75.6624
     }
