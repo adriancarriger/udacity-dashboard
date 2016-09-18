@@ -1,1 +1,25 @@
 @import '../styles/variables';
+.sebm-google-map-container {
+  height: 500px;
+  .branch-container {
+    .branch-name {
+
+    }
+    .branch-employees {
+      background-color: $primaryColor;
+      width: 23px;
+      height: 23px;
+      color: white;
+      padding: 3px 4px;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.gm-style-iw ~ div {
+  display: none;
+}
+.map-label {
+  display: none;
+}

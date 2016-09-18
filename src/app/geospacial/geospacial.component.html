@@ -1,1 +1,17 @@
 <p>geospacial works!</p>
+<sebm-google-map 
+  (idle)="onIdle()"
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="true"
+  [scrollwheel]="false"
+  [zoomControl]="true"
+  [styles]="styles">
+  <sebm-google-map-info-window [latitude]="lat" [longitude]="lng" [disableAutoPan]="true" [isOpen]="true">
+    <div #branchContainer class="branch-container">
+      <div class="branch-employees">24</div>
+      <div class="branch-name">Scranton</div>
+    </div>
+  </sebm-google-map-info-window>
+</sebm-google-map>

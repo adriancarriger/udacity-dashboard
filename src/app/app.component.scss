@@ -10,5 +10,9 @@ html, body {
     padding-top: $headerHeight + 10px;
     margin-left: $navWidth;
     width: calc(100% - #{$navWidth});
+    .current-date {
+      color: gray;
+      text-align: right;
+    }
   }
 }
