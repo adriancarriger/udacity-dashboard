@@ -5,14 +5,18 @@ html, body {
 .wrapper {
   position: relative;
   min-height: 100%;
+  $defaultPadding: 10px;
   .content-container {
-    padding: 10px;
-    padding-top: $headerHeight + 10px;
+    padding-top: $headerHeight + $defaultPadding;
     margin-left: $navWidth;
     width: calc(100% - #{$navWidth});
     .current-date {
       color: gray;
       text-align: right;
+      padding-right: $defaultPadding;
+    }
+    .content-area {
+      padding: $defaultPadding;
     }
   }
 }
