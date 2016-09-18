@@ -4,31 +4,47 @@
   font-weight: 200;
   font-size: 25px;
 }
-.sebm-google-map-container {
-  height: 500px;
-  .branch-container {
-    .branch-name {
-      color: $primaryColor;
-    }
-    .branch-employees {
-      background-color: $primaryColor;
-      width: 23px;
-      height: 23px;
-      color: white;
-      padding: 3px 4px;
-      border-radius: 50%;
-      margin: 0 auto;
-    }
+.map {
+  position: relative;
+  &:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 1;
+    content: "";
   }
-}
-
-.gm-style-iw  {
-  top: 62px !important; // override style attribute from map directive
-  text-align: center;
-  & ~ div {
+  &.loaded:before {
     display: none;
   }
-}
-.map-label {
-  display: none;
+  .sebm-google-map-container {
+    .branch-container {
+      .branch-name {
+        color: $primaryColor;
+      }
+      .branch-employees {
+        background-color: $primaryColor;
+        width: 23px;
+        height: 23px;
+        color: white;
+        padding: 3px 4px;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .gm-style-iw  {
+    top: 62px !important; // override style attribute from map directive
+    text-align: center;
+    & ~ div {
+      display: none;
+    }
+  }
+  .map-label {
+    display: none;
+  }
 }

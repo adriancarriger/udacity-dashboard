@@ -2,19 +2,22 @@
   <h1 class="title">Employee map</h1>
   <p>Employee count per branch</p>
 </div>
-<sebm-google-map 
-  (idle)="onIdle()"
-  [latitude]="lat"
-  [longitude]="lng"
-  [zoom]="zoom"
-  [disableDefaultUI]="true"
-  [scrollwheel]="false"
-  [zoomControl]="true"
-  [styles]="styles">
-  <sebm-google-map-info-window [latitude]="lat" [longitude]="lng" [disableAutoPan]="true" [isOpen]="true">
-    <div #branchContainer class="branch-container">
-      <div class="branch-employees">24</div>
-      <div class="branch-name">Scranton</div>
-    </div>
-  </sebm-google-map-info-window>
-</sebm-google-map>
+<div class="map" #map [ngClass]="{'loaded': mapMeta.loaded}">
+  <sebm-google-map
+    (idle)="onIdle(); mapMeta.loaded = true"
+    [latitude]="mapMeta.current.lat"
+    [longitude]="mapMeta.current.lng"
+    [zoom]="mapMeta.zoom"
+    [disableDefaultUI]="true"
+    [scrollwheel]="false"
+    [zoomControl]="true"
+    [styles]="mapMeta.styles"
+    [style.height]="mapMeta.height">
+    <sebm-google-map-info-window [latitude]="testingBranch.lat" [longitude]="testingBranch.lng" [disableAutoPan]="true" [isOpen]="true">
+      <div #branchContainer class="branch-container">
+        <div class="branch-employees">24</div>
+        <div class="branch-name">Scranton</div>
+      </div>
+    </sebm-google-map-info-window>
+  </sebm-google-map>
+</div>
