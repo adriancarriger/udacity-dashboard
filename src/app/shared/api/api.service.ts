@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   public branches = [
     {
-      name: 'Scranton',
+      city: 'Scranton',
       state: 'PA',
       employees: 24,
       lat: 41.4090,
