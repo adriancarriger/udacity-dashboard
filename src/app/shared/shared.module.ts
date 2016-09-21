@@ -2,10 +2,12 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
 
 import { NavbarComponent } from './navbar/index';
 import { CroppedImageComponent } from './cropped-image/index';
 import { ApiService } from './api/api.service';
+import { firebaseConfig } from './firebase-config';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -14,7 +16,8 @@ import { ApiService } from './api/api.service';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   declarations: [
     NavbarComponent,

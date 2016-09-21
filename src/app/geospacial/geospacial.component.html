@@ -14,7 +14,7 @@
     [styles]="mapMeta.styles"
     [style.height]="mapMeta.height">
     <sebm-google-map-info-window
-      *ngFor="let branch of apiService.branches"
+      *ngFor="let branch of apiService.branches | async"
       #branches
       [latitude]="branch.lat"
       [longitude]="branch.lng"

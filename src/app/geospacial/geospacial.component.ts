@@ -36,7 +36,8 @@ export class GeospacialComponent {
 
   public updateLabels(): void {
     this.branches.forEach(branch => {
-      branch.content.parentElement.parentElement.previousSibling.classList.add("map-label");
+      let el = branch.content.parentElement.parentElement.previousSibling.classList;
+      if (el !== undefined) { el.add("map-label"); }
     });
   }
 
