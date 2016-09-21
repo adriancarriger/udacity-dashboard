@@ -28,17 +28,36 @@ export class GeospacialComponent {
     this.mapMeta.height = (window.innerHeight - this.map.nativeElement.offsetTop) + 'px';
   }
 
-  public ngAfterViewInit(): void {
+  ngAfterViewInit() {
     this.branches.changes.subscribe(children => {
-      setTimeout( () => this.updateLabels(), 0);
+      this.updateLabels();
     });
   }
 
   public updateLabels(): void {
+    setTimeout( () => this.addClassToLabels(), 0);
+  }
+
+  public scheduleUpdate(): void {
+    setTimeout( () => {
+      this.addClassToLabels();
+    }, 500);
+  }
+
+  private addClassToLabels(): void {
+    let scheduleUpdate = false;
     this.branches.forEach(branch => {
-      let el = branch.content.parentElement.parentElement.previousSibling.classList;
-      if (el !== undefined) { el.add("map-label"); }
+      let el = branch.content.parentElement.parentElement.previousSibling;
+      if (el !== undefined && el.classList !== undefined) {
+        el.classList.add("map-label");
+      }
+      if (el === undefined || el.classList === undefined || !el.classList.contains("map-label")) {
+        scheduleUpdate = true;
+      }
     });
+   if (scheduleUpdate) {
+     this.scheduleUpdate();
+   }
   }
 
 }
