@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { MapStyles } from './map-styles';
 
-import { ApiService } from '../shared/index';
+import { MapStyles } from './map-styles';
+import { ApiService } from '../shared/api/api.service';
 
 @Component({
   selector: 'app-geospacial',

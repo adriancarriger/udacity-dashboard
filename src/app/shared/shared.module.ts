@@ -28,7 +28,7 @@ import { firebaseConfig } from './firebase-config';
     FormsModule,
     RouterModule,
     NavbarComponent,
-    CroppedImageComponent,
+    CroppedImageComponent
   ]
 })
 export class SharedModule {

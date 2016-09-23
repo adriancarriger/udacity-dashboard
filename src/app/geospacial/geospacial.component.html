@@ -13,17 +13,19 @@
     [zoomControl]="true"
     [styles]="mapMeta.styles"
     [style.height]="mapMeta.height">
-    <sebm-google-map-info-window
-      *ngFor="let branch of apiService.branches | async"
-      #branches
-      [latitude]="branch.lat"
-      [longitude]="branch.lng"
-      [disableAutoPan]="true"
-      [isOpen]="true">
-      <div class="branch-container">
-        <div class="branch-employees">{{branch.employees}}</div>
-        <div class="branch-location">{{branch.city}}, {{branch.state}}</div>
-      </div>
-    </sebm-google-map-info-window>
+    <template ngFor let-branch [ngForOf]="apiService.branches | async">
+      <sebm-google-map-info-window
+        *ngIf="branch.employees > 0"
+        #branches
+        [latitude]="branch.lat"
+        [longitude]="branch.lng"
+        [disableAutoPan]="true"
+        [isOpen]="true">
+        <div class="branch-container">
+          <div class="branch-employees">{{branch.employees}}</div>
+          <div class="branch-location">{{branch.city}}, {{branch.state}}</div>
+        </div>
+      </sebm-google-map-info-window>
+    </template>
   </sebm-google-map>
 </div>

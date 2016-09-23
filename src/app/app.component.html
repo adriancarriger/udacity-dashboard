@@ -1,7 +1,7 @@
 <div class="wrapper">
   <app-navbar></app-navbar>
   <div class="content-container">  
-    <div class="current-date">Today's date: <time>January 15, 2007</time></div>
+    <div class="current-date">Today's date: <time>{{ (apiService.currentDate | async)?.$value / 1000 | amFromUnix | amDateFormat:'LL' }}</time></div>
     <router-outlet></router-outlet>
   </div>
 </div>
