@@ -1,4 +1,12 @@
-import { Component, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ViewChildren,
+  ViewEncapsulation,
+  OnInit,
+  AfterViewInit,
+  OnDestroy
+} from '@angular/core';
 
 import { MapStyles } from './map-styles';
 import { ApiService } from '../shared/api/api.service';
@@ -9,10 +17,11 @@ import { ApiService } from '../shared/api/api.service';
   styleUrls: ['geospacial.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GeospacialComponent {
+export class GeospacialComponent implements AfterViewInit, OnDestroy {
   @ViewChild('map') map;
   @ViewChildren('branches') branches;
   public isCollapsed: boolean = true;
+  public subscription;
   public mapMeta = {
     lat: 41.4090,
     lng: -75.6624,
@@ -28,10 +37,14 @@ export class GeospacialComponent {
     this.mapMeta.height = (window.innerHeight - this.map.nativeElement.offsetTop) + 'px';
   }
 
-  ngAfterViewInit() {
-    this.branches.changes.subscribe(children => {
+  ngAfterViewInit(): void {
+    this.subscription = this.branches.changes.subscribe(children => {
       this.updateLabels();
     });
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   public updateLabels(): void {
