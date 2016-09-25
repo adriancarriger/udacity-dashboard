@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { NavbarComponent } from './navbar/index';
 import { AreaChartComponent } from './area-chart/index';
@@ -18,7 +19,8 @@ import { firebaseConfig } from './firebase-config';
   imports: [
     CommonModule,
     RouterModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    ChartsModule
   ],
   declarations: [
     NavbarComponent,
