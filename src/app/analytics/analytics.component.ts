@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['analytics.component.scss']
 })
 export class AnalyticsComponent {
-  public isCollapsed: boolean = true;
-  
   constructor() { }
 }

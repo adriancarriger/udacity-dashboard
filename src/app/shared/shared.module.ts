@@ -6,7 +6,6 @@ import { AngularFireModule } from 'angularfire2';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { NavbarComponent } from './navbar/index';
-import { AreaChartComponent } from './area-chart/index';
 import { CroppedImageComponent } from './cropped-image/index';
 import { ApiService } from './api/api.service';
 import { firebaseConfig } from './firebase-config';
@@ -24,7 +23,6 @@ import { firebaseConfig } from './firebase-config';
   ],
   declarations: [
     NavbarComponent,
-    AreaChartComponent,
     CroppedImageComponent
   ],
   exports: [
@@ -32,8 +30,8 @@ import { firebaseConfig } from './firebase-config';
     FormsModule,
     RouterModule,
     NavbarComponent,
-    AreaChartComponent,
-    CroppedImageComponent
+    CroppedImageComponent,
+    ChartsModule
   ]
 })
 export class SharedModule {

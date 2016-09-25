@@ -1,3 +1,24 @@
 <div class="content-area">
-  <p>key-metrics works!</p>
+  <div class="chart-container primary">
+    <h1>Paying customers</h1>
+    <base-chart class="chart"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [colors]="lineChartColors"
+      [chartType]="'line'"></base-chart>
+  </div>
+  <div class="col-md-6 chart-container">
+    <h1>Reported issues</h1>
+    <base-chart class="chart"
+      [data]="barChartData"
+      [labels]="lineChartLabels"
+      [colors]="barChartColors"
+      [chartType]="'bar'"></base-chart>
+  </div>
+  <div class="col-md-6 chart-container number-container">
+    <div class="number-content">
+      <div class="number-data">10</div>
+      <h1 class="number-label">Open issues</h1>
+    </div>
+  </div>
 </div>

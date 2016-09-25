@@ -1,1 +1,53 @@
 @import '../styles/variables';
+.chart-container {
+  padding: 30px 0;
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  &.primary {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    h1 {
+      font-size: 30px;
+    }
+  }
+  &.number-container {
+    position: relative;
+    padding-bottom: calc(27.516% + 60px);
+    .number-content {
+      position: absolute;
+      margin: auto;
+      $size: 164px;
+      height: $size;
+      width: $size;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      .number-data {
+        text-align: center;
+        font-size: 100px;
+        color: $primaryColor;
+        font-weight: 100;
+        padding-right: 11px;
+      }
+      .number-label {
+        color: $primaryColor;
+        margin: 0;
+      }
+    }
+  }
+}
+:host {
+  // Floated content - http://stackoverflow.com/a/11597829/5357459
+  &:after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+  }
+  padding-bottom: 80px;
+  display: block;
+}

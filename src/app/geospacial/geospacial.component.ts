@@ -30,6 +30,7 @@ export class GeospacialComponent implements AfterViewInit, OnDestroy {
     styles: MapStyles,
     loaded: false
   }
+  public isOpen = false;
 
   constructor(public apiService: ApiService) { }
 
@@ -59,6 +60,7 @@ export class GeospacialComponent implements AfterViewInit, OnDestroy {
 
   private addClassToLabels(): void {
     let scheduleUpdate = false;
+    this.isOpen = true;
     this.branches.forEach(branch => {
       let el = branch.content.parentElement.parentElement.previousSibling;
       if (el !== undefined && el.classList !== undefined) {

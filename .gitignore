@@ -14,6 +14,7 @@
 .classpath
 *.launch
 .settings/
+spell.json
 
 # misc
 /.sass-cache
