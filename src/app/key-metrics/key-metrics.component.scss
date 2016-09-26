@@ -1,21 +1,31 @@
 @import '../styles/variables';
+h1 {
+  font-size: 25px;
+}
 .chart-container {
   padding: 30px 0;
   h1 {
-    font-size: 20px;
     text-align: center;
   }
-  &.primary {
+  &.focus {
     max-width: 1000px;
     margin: 0 auto;
     padding: 30px;
+    
+  }
+  &.pie {
+    max-width: 550px;
+    margin: 0 auto;
     h1 {
-      font-size: 30px;
+      padding: 20px;
+    }
+    .chart {
+      margin-left: -33%;
     }
   }
   &.number-container {
     position: relative;
-    padding-bottom: calc(27.516% + 60px);
+    padding-bottom: calc(36.052% + 60px);
     .number-content {
       position: absolute;
       margin: auto;
@@ -40,7 +50,16 @@
     }
   }
 }
+.chart-row {
+  padding: 0 40px;
+}
+
 :host {
+  padding-bottom: 80px;
+  display: block;
+}
+
+:host, .chart-row {
   // Floated content - http://stackoverflow.com/a/11597829/5357459
   &:after { 
     content: " ";
@@ -48,6 +67,4 @@
     height: 0; 
     clear: both;
   }
-  padding-bottom: 80px;
-  display: block;
 }

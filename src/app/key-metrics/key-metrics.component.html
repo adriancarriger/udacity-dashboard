@@ -1,24 +1,37 @@
 <div class="content-area">
-  <div class="chart-container primary">
+  <div class="chart-container focus">
     <h1>Paying customers</h1>
     <base-chart class="chart"
-      [datasets]="lineChartData"
+      [data]="lineChartData"
       [labels]="lineChartLabels"
       [colors]="lineChartColors"
+      [legend]="false"
       [chartType]="'line'"></base-chart>
   </div>
-  <div class="col-md-6 chart-container">
-    <h1>Reported issues</h1>
-    <base-chart class="chart"
-      [data]="barChartData"
-      [labels]="lineChartLabels"
-      [colors]="barChartColors"
-      [chartType]="'bar'"></base-chart>
-  </div>
-  <div class="col-md-6 chart-container number-container">
-    <div class="number-content">
-      <div class="number-data">10</div>
-      <h1 class="number-label">Open issues</h1>
+  <div class="chart-row">
+    <div class="col-md-8 chart-container">
+      <h1>Reported issues</h1>
+      <base-chart class="chart"
+        [datasets]="barChartData"
+        [labels]="lineChartLabels"
+        [colors]="barChartColors"
+        [chartType]="'bar'"></base-chart>
     </div>
+    <div class="col-md-4 chart-container number-container">
+      <div class="number-content">
+        <div class="number-data">10</div>
+        <h1 class="number-label">Open issues</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div class="chart-container pie">
+    <h1>Customers by branch</h1>
+    <base-chart class="chart"
+      [data]="pieChartData"
+      [labels]="pieChartLabels"
+      [colors]="doughnutChartColors"
+      [options]="pieChartOptions"
+      [chartType]="'pie'"></base-chart>
   </div>
 </div>

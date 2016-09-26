@@ -7,24 +7,39 @@ import { Component } from '@angular/core';
 })
 export class KeyMetricsComponent {
   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Customer A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Customer B'}
+    [65, 59, 80, 61, 56, 65, 70]
   ];
-  public barChartData: Array<any> = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
+  public barChartData:any[] = [
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Client'},
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Employee'}
   ];
+
+  public pieChartLabels:string[] = ['Scranton', 'Akron', 'Albany', 'Branch-4', 'Branch-5', 'Branch-6', 'Branch-7'];
+  public pieChartData:number[] = [300, 500, 200, 123, 345, 225, 234];
+  public pieChartOptions:any = {
+    legend: {
+      position: 'right'
+    }
+  };
+  private doughnutChartColors: any[] = []; 
+
   public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChartColors:Array<any> = [];
   public barChartColors: Array<any>  = [];
   private colors = [
     'rgba(0, 157, 255,',
-    'rgba(57, 255, 182,'
+    'rgba(57, 255, 182,',
+    'rgba(0, 16, 255,',
+    'rgba(0, 255, 24,',
+    'rgba(0, 216, 255,',
+    'rgba(99, 245, 255,',
+    'rgba(255, 239, 0,'
   ];
   
   constructor() { }
 
   ngOnInit() {
+    let doughnutColors = [];
     for (let i = 0; i < this.colors.length; i++) {
       // Line chart
       let lineOpacity = ' 0.4)';
@@ -46,7 +61,10 @@ export class KeyMetricsComponent {
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: this.colors[i] + barOpacity
       });
+      let doughnutOpacity = ' 0.7)';
+      doughnutColors.push( this.colors[i] + doughnutOpacity );
     }
+    this.doughnutChartColors.push({ backgroundColor: doughnutColors });
   }
 
   
