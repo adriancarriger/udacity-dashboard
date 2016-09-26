@@ -149,7 +149,7 @@
 	}
 	.search-container {
 		position: absolute;
-		right: 15px;
+		left: 15px;
 		top: 0;
 		bottom: 0;
 		margin: auto;
@@ -178,6 +178,28 @@
 				& + i {
 					color: gray;
 				}
+			}
+		}
+	}
+	.avatar-container {
+		float: right;
+		margin: 5px 6px;
+		.avatar-message {
+			float: left;
+			height: 50px;
+    	padding: 5px 9px;
+    	width: 54px;
+		}
+		.image-container {
+			width: 50px;
+			float: left;
+			overflow: hidden;
+			border-radius: 50%;
+			height: 50px;
+			margin-right: 15px;
+			
+			img {
+				width: 100%;
 			}
 		}
 	}
