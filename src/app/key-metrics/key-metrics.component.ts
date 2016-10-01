@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { ApiService } from '../shared/api/api.service';
+
 @Component({
   selector: 'app-key-metrics',
   templateUrl: 'key-metrics.component.html',
@@ -14,8 +16,9 @@ export class KeyMetricsComponent {
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Employee'}
   ];
 
-  public pieChartLabels:string[] = ['Scranton', 'Akron', 'Albany', 'Branch-4', 'Branch-5', 'Branch-6', 'Branch-7'];
-  public pieChartData:number[] = [300, 500, 200, 123, 345, 225, 234];
+  public showPieChart = true;
+  public pieChartLabels:string[] = [];
+  public pieChartData:number[] = [];
   public pieChartOptions:any = {
     legend: {
       position: 'right'
@@ -36,9 +39,14 @@ export class KeyMetricsComponent {
     'rgba(255, 239, 0,'
   ];
   
-  constructor() { }
+  constructor(public apiService: ApiService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
+    this.setColors();
+    this.getData();
+  }
+
+  private setColors(): void {
     let doughnutColors = [];
     for (let i = 0; i < this.colors.length; i++) {
       // Line chart
@@ -67,7 +75,48 @@ export class KeyMetricsComponent {
     this.doughnutChartColors.push({ backgroundColor: doughnutColors });
   }
 
-  
+  private getData(): void {
+    this.apiService.branches.subscribe(branches => {
+      let temp = {
+        cities: [],
+        clients: []
+      }
+      for (let i = 0; i < branches.length; i++) {
+        if (branches[i].clients > 0) {
+          temp.cities.push( branches[i].city );
+          temp.clients.push( branches[i].clients );
+        }
+      }
+      let resetNeeded = false;
+      if (!this.arraysEqual(this.pieChartLabels, temp.cities)) {
+        resetNeeded = true;
+      }
+      this.pieChartLabels = temp.cities;
+      this.pieChartData = temp.clients;
+      if (resetNeeded) {
+        this.resetPieChart();
+      }
+    });
+  }
 
+  // http://stackoverflow.com/a/4025958/5357459
+  private arraysEqual(arr1, arr2): boolean {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+    for (let i = arr1.length; i--;) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  private resetPieChart(): void {
+    this.showPieChart = false;
+    setTimeout( () => {
+      this.showPieChart = true;
+    }, 0);
+  }
   
 }

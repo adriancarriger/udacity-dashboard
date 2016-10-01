@@ -25,9 +25,10 @@
     </div>
   </div>
   
-  <div class="chart-container pie">
+  <div *ngIf="pieChartData.length > 0" class="chart-container pie">
     <h1>Customers by branch</h1>
     <base-chart class="chart"
+      *ngIf="showPieChart"
       [data]="pieChartData"
       [labels]="pieChartLabels"
       [colors]="doughnutChartColors"
