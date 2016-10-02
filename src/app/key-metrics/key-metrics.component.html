@@ -2,8 +2,9 @@
   <div class="chart-container focus">
     <h1>Paying customers</h1>
     <base-chart class="chart"
-      [data]="lineChartData"
-      [labels]="lineChartLabels"
+      *ngIf="apiService.sales | async"
+      [datasets]="(apiService.sales | async).clients"
+      [labels]="(apiService.sales | async).dates"
       [colors]="lineChartColors"
       [legend]="false"
       [chartType]="'line'"></base-chart>
@@ -13,7 +14,7 @@
       <h1>Reported issues</h1>
       <base-chart class="chart"
         [datasets]="barChartData"
-        [labels]="lineChartLabels"
+        [labels]="barChartLabels"
         [colors]="barChartColors"
         [chartType]="'bar'"></base-chart>
     </div>
@@ -24,14 +25,13 @@
       </div>
     </div>
   </div>
-  
   <div *ngIf="pieChartData.length > 0" class="chart-container pie">
     <h1>Customers by branch</h1>
     <base-chart class="chart"
       *ngIf="showPieChart"
       [data]="pieChartData"
       [labels]="pieChartLabels"
-      [colors]="doughnutChartColors"
+      [colors]="pieChartColors"
       [options]="pieChartOptions"
       [chartType]="'pie'"></base-chart>
   </div>

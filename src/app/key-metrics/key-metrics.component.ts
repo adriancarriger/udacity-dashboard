@@ -8,27 +8,8 @@ import { ApiService } from '../shared/api/api.service';
   styleUrls: ['key-metrics.component.scss']
 })
 export class KeyMetricsComponent {
-  public lineChartData:Array<any> = [
-    [65, 59, 80, 61, 56, 65, 70]
-  ];
-  public barChartData:any[] = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Client'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Employee'}
-  ];
 
-  public showPieChart = true;
-  public pieChartLabels:string[] = [];
-  public pieChartData:number[] = [];
-  public pieChartOptions:any = {
-    legend: {
-      position: 'right'
-    }
-  };
-  private doughnutChartColors: any[] = []; 
-
-  public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartColors:Array<any> = [];
-  public barChartColors: Array<any>  = [];
+  // All colors
   private colors = [
     'rgba(0, 157, 255,',
     'rgba(57, 255, 182,',
@@ -38,6 +19,29 @@ export class KeyMetricsComponent {
     'rgba(99, 245, 255,',
     'rgba(255, 239, 0,'
   ];
+
+  // Line chart
+  public showLineChart: boolean = true;
+  public lineChartColors: Array<any> = [];
+
+  // Bar chart
+  public barChartLabels: any[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public barChartData: any[] = [
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Client'},
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Employee'}
+  ];
+  public barChartColors: Array<any> = [];
+
+  // Pie chart
+  public showPieChart = true;
+  public pieChartLabels: string[] = [];
+  public pieChartData: number[] = [];
+  public pieChartOptions: any = {
+    legend: {
+      position: 'right'
+    }
+  };
+  private pieChartColors: any[] = []; 
   
   constructor(public apiService: ApiService) { }
 
@@ -47,7 +51,7 @@ export class KeyMetricsComponent {
   }
 
   private setColors(): void {
-    let doughnutColors = [];
+    let pieColors = [];
     for (let i = 0; i < this.colors.length; i++) {
       // Line chart
       let lineOpacity = ' 0.4)';
@@ -69,13 +73,14 @@ export class KeyMetricsComponent {
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: this.colors[i] + barOpacity
       });
-      let doughnutOpacity = ' 0.7)';
-      doughnutColors.push( this.colors[i] + doughnutOpacity );
+      let pieOpacity = ' 0.7)';
+      pieColors.push( this.colors[i] + pieOpacity );
     }
-    this.doughnutChartColors.push({ backgroundColor: doughnutColors });
+    this.pieChartColors.push({ backgroundColor: pieColors });
   }
 
   private getData(): void {
+    // Branch data
     this.apiService.branches.subscribe(branches => {
       let temp = {
         cities: [],
@@ -94,9 +99,11 @@ export class KeyMetricsComponent {
       this.pieChartLabels = temp.cities;
       this.pieChartData = temp.clients;
       if (resetNeeded) {
-        this.resetPieChart();
+        this.resetChart('Pie');
       }
     });
+    // Sales data
+    this.apiService.sales.subscribe(sales => this.resetChart('Line') );
   }
 
   // http://stackoverflow.com/a/4025958/5357459
@@ -112,10 +119,10 @@ export class KeyMetricsComponent {
     return true;
   }
 
-  private resetPieChart(): void {
-    this.showPieChart = false;
+  private resetChart(name): void {
+    this['show' + name + 'Chart'] = false;
     setTimeout( () => {
-      this.showPieChart = true;
+      this['show' + name + 'Chart']  = true;
     }, 0);
   }
   
