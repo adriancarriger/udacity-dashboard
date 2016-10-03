@@ -1,22 +1,43 @@
-<div class="content-area spreadsheet-container">
-  <div class="spreadsheet">
-    <div class="row header">
-      <div class="col small">Opened</div>
-      <div class="col small">Closed</div>
-      <div class="col small">Type</div>
-      <div class="col small">Complainer</div>
-      <div class="col small">Complainee</div>
-      <div class="col large">Comments</div>
-    </div>
-    <div *ngFor="let issue of (apiService.rawIssues | async)" class="row">
-      <div class="col small">{{issue.opened}}</div>
-      <div class="col small">{{issue.closed}}</div>
-      <div class="col small">{{issue.type}}</div>
-      <div class="col small">{{issue.complainer}}</div>
-      <div class="col small">{{issue.complainee}}</div>
-      <div class="col large comments-container" [ngClass]="{'expanded': issue.expand === true}">
-        <span class="comments">{{issue.comments}}</span> 
-        <button class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
+<div class="content-area">
+  <div class="filter">
+    <div class="input-area">
+      <div class="input-item left">
+        <select
+          (change)="statusFilter = $event">
+          <option selected>All statuses</option>
+          <option>Open</option>
+          <option>Closed</option>
+        </select>
+      </div>
+      <div class="input-item right">
+        <select
+          (change)="typeFilter = $event">
+          <option selected>All types</option>
+          <option>Employees</option>
+          <option>Clients</option>
+        </select>
+      </div>
+  </div>
+  <div class="spreadsheet-container">
+    <div class="spreadsheet">
+      <div class="row header">
+        <div class="col small">Opened</div>
+        <div class="col small">Closed</div>
+        <div class="col small">Type</div>
+        <div class="col small">Complainer</div>
+        <div class="col small">Complainee</div>
+        <div class="col large">Comments</div>
+      </div>
+      <div *ngFor="let issue of (apiService.rawIssues | async)" class="row">
+        <div class="col small">{{issue.opened}}</div>
+        <div class="col small">{{issue.closed}}</div>
+        <div class="col small">{{issue.type}}</div>
+        <div class="col small">{{issue.complainer}}</div>
+        <div class="col small">{{issue.complainee}}</div>
+        <div class="col large comments-container" [ngClass]="{'expanded': issue.expand === true}">
+          <span class="comments">{{issue.comments}}</span> 
+          <button class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
+        </div>
       </div>
     </div>
   </div>

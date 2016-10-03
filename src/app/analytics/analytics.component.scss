@@ -2,6 +2,26 @@
 $breakPoint: 1000px;
 $expandPoint: 1200px;
 $sheetFontSize: 14px;
+.filter {
+  .input-item {
+    width: 180px;
+    padding: 10px;
+    float: left;
+    &.left {
+      padding-right: 30px;
+    }
+    &.right {
+      padding-left: 30px;
+    }
+    label {
+      color: white;
+      font-weight: 200;
+    }
+    select {
+      width: 100%;
+    }
+  }
+}
 .spreadsheet-container {
   width: 100%;
   overflow-x: scroll;
@@ -59,5 +79,39 @@ $sheetFontSize: 14px;
         }
       }
     }
+  }
+}
+
+// default select styling
+select {
+  $selectColor: white;
+  color: $primaryColor;
+  display: block;
+  font-size: 18px;
+  border-style: solid;
+  border-color: $selectColor;
+  border-width: 1px;
+  padding: 10.219px;
+  box-shadow: none;
+
+  height: 47.44px;
+  min-width: 100px;
+  background-color: $selectColor;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: 98% 50%;
+  background-repeat: no-repeat;
+  background-image: url('assets/ios-down-arrow.svg');
+  background-size: 30px;
+  cursor: pointer;
+  &::-ms-expand{
+    display:none;
+  }
+  .default-select {
+    display: none;
+  }
+  .hide-option {
+    display: none;
   }
 }
