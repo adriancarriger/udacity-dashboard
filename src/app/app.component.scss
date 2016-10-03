@@ -13,6 +13,7 @@ h1 {
     padding-top: $headerHeight + $defaultPadding;
     margin-left: $navWidth;
     width: calc(100% - #{$navWidth});
+    position: relative;
     .current-date {
       color: gray;
       text-align: right;

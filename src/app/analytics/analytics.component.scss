@@ -3,6 +3,39 @@ $breakPoint: 1000px;
 $expandPoint: 1200px;
 $sheetFontSize: 14px;
 .filter {
+  .search-container {
+		position: absolute;
+		right: 15px;
+		top: 14px;
+		margin: auto;
+		height: 30px;
+		i {
+			position: absolute;
+			color: white;
+			
+			margin: auto;
+			top: 0;
+			bottom: 6px;
+			height: 20px;
+			left: 7px;
+			font-size: 20px;	
+		}
+		.search {
+			border-radius: 15px;
+			border: none;
+			color: gray;
+			font-size: 15px;
+    	padding: 5px 30px;
+			background-color: $fadedPrimary;
+			outline: none;
+			&:focus {
+				background-color: white;
+				& + i {
+					color: gray;
+				}
+			}
+		}
+	}
   .input-item {
     width: 180px;
     padding: 10px;
