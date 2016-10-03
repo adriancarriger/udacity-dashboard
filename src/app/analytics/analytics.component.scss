@@ -1,1 +1,63 @@
 @import '../styles/variables';
+$breakPoint: 1000px;
+$expandPoint: 1200px;
+$sheetFontSize: 14px;
+.spreadsheet-container {
+  width: 100%;
+  overflow-x: scroll;
+  .spreadsheet {
+    $sheetSidePadding: 15px;
+    min-width: 900px;
+    width: 100%;
+    padding: 0 $sheetSidePadding;
+    .row {
+      border-bottom: solid 1px $lightGray;
+      padding: 10px $sheetSidePadding;
+      &.header {
+        font-weight: bold;
+        border-bottom-width: 2px;
+      }
+      $smallSize: 12%;
+      .col {
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        font-size: $sheetFontSize;
+      }
+      .small {
+        width: $smallSize;
+      }
+      .large {
+        width: 100% - ($smallSize * 5);
+      }
+      .comments-container {
+        .expand-button {
+          padding: initial;
+        }
+        @media (min-width: $breakPoint + 1px) {
+          .expand-button {
+            display: none;
+          }
+        }
+        @media (max-width: $breakPoint) {
+          &:not(.expanded) {
+            .comments {
+              display: block;
+              float: left;
+              width: 280px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            .expand-button {
+              display: block;
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}

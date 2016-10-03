@@ -1,3 +1,23 @@
-<div class="content-area">
-  <p>analytics works!</p>
+<div class="content-area spreadsheet-container">
+  <div class="spreadsheet">
+    <div class="row header">
+      <div class="col small">Opened</div>
+      <div class="col small">Closed</div>
+      <div class="col small">Type</div>
+      <div class="col small">Complainer</div>
+      <div class="col small">Complainee</div>
+      <div class="col large">Comments</div>
+    </div>
+    <div *ngFor="let issue of (apiService.rawIssues | async)" class="row">
+      <div class="col small">{{issue.opened}}</div>
+      <div class="col small">{{issue.closed}}</div>
+      <div class="col small">{{issue.type}}</div>
+      <div class="col small">{{issue.complainer}}</div>
+      <div class="col small">{{issue.complainee}}</div>
+      <div class="col large comments-container" [ngClass]="{'expanded': issue.expand === true}">
+        <span class="comments">{{issue.comments}}</span> 
+        <button class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
+      </div>
+    </div>
+  </div>
 </div>
