@@ -29,4 +29,20 @@ export class AnalyticsComponent {
       this.desc = !this.desc;
     }
   }
+
+  public arrowDesc(sortBy, numeric: boolean): boolean {
+    if (this.sortBy === sortBy) {
+      // Return current
+      return this.desc;
+    } else {
+      // Return default
+      if (numeric) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
 }
+

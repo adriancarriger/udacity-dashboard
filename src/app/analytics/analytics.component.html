@@ -31,11 +31,11 @@
   <div class="spreadsheet-container">
     <div class="spreadsheet">
       <div class="row header">
-        <button [ngClass]="{'current': sortBy === 'opened'}" (click)="updateSort('opened')" class="btn btn-link col small">Opened</button>
-        <button [ngClass]="{'current': sortBy === 'closed'}" (click)="updateSort('closed')" class="btn btn-link col small">Closed</button>
-        <button [ngClass]="{'current': sortBy === 'type'}" (click)="updateSort('type')" class="btn btn-link col small">Type</button>
-        <button [ngClass]="{'current': sortBy === 'complainer'}" (click)="updateSort('complainer')" class="btn btn-link col small">Complainer</button>
-        <button [ngClass]="{'current': sortBy === 'complainee'}" (click)="updateSort('complainee')" class="btn btn-link col small">Complainee</button>
+        <button [ngClass]="{'current': sortBy === 'opened'}" (click)="updateSort('opened')" class="btn btn-link col small">Opened <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('opened', true), 'ion-ios-arrow-up' : !arrowDesc('opened', true) }"></span></button>
+        <button [ngClass]="{'current': sortBy === 'closed'}" (click)="updateSort('closed')" class="btn btn-link col small">Closed  <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('closed', true), 'ion-ios-arrow-up' : !arrowDesc('closed', true) }"></span></button>
+        <button [ngClass]="{'current': sortBy === 'type'}" (click)="updateSort('type')" class="btn btn-link col small">Type <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('type', false), 'ion-ios-arrow-up' : !arrowDesc('type', false) }"></span></button>
+        <button [ngClass]="{'current': sortBy === 'complainer'}" (click)="updateSort('complainer')" class="btn btn-link col small">Complainer <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('complainer', false), 'ion-ios-arrow-up' : !arrowDesc('complainer', false) }"></span></button>
+        <button [ngClass]="{'current': sortBy === 'complainee'}" (click)="updateSort('complainee')" class="btn btn-link col small">Complainee <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('complainee', false), 'ion-ios-arrow-up' : !arrowDesc('complainee', false) }"></span></button>
         <div class="col large">Comments</div>
       </div>
       <div *ngFor="let issue of (apiService.rawIssues | async) | appFilter:termSearch:statusFilter:typeFilter:filteredMeta | appSort:sortBy:desc" class="row">
