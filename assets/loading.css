@@ -58,20 +58,20 @@
 }
 
 .spin-progress:before {
-	background: #ff7d7d;
+	background: rgba(0, 157, 255, 0.8);
 }
 
 .spin-progress:after {
 	transform: rotate(-45deg);
-	background: #ff3c3c;
+	background: rgba(0, 157, 255, 1);
 }
 
 .spin-progress > div:before {
 	transform: rotate(-90deg);
-	background: #f50000;
+	background: rgba(0, 157, 255, 0.7);
 }
 
 .spin-progress > div:after {
 	transform: rotate(-135deg);
-	background: #ffc3c3;
+	background: rgba(0, 157, 255, 0.4);
 }
