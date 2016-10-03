@@ -8,5 +8,10 @@ import { ApiService } from '../shared/api/api.service';
   styleUrls: ['analytics.component.scss']
 })
 export class AnalyticsComponent {
+  public termSearch: string = '';
+  public statusFilter: string = 'all';
+  public typeFilter: string = 'all';
+  public readableQueries: string;
+  public filteredMeta = {count: 0};
   constructor(public apiService: ApiService) { }
 }

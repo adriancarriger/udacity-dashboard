@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
 import { AnalyticsComponent } from './analytics.component';
+import { FilterPipe } from './filter/index';
 
 @NgModule({
   imports: [CommonModule, SharedModule],
   declarations: [
-    AnalyticsComponent
+    AnalyticsComponent,
+    FilterPipe
   ],
   exports: [AnalyticsComponent]
 })

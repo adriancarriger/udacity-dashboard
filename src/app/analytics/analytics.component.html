@@ -1,7 +1,11 @@
 <div class="content-area">
   <div class="filter">
     <div class="search-container">
-      <input class="search" type="text">
+      <input
+      #searchInput
+      (input)="termSearch = searchInput.value"
+      class="search"
+      type="text">
       <i
         class="ion-ios-search"
         aria-hidden="true"></i>
@@ -9,18 +13,18 @@
     <div class="input-area">
       <div class="input-item left">
         <select
-          (change)="statusFilter = $event">
-          <option selected>All statuses</option>
+          (change)="statusFilter = $event.target.value">
+          <option selected value="all">All statuses</option>
           <option>Open</option>
           <option>Closed</option>
         </select>
       </div>
       <div class="input-item right">
         <select
-          (change)="typeFilter = $event">
-          <option selected>All types</option>
-          <option>Employees</option>
-          <option>Clients</option>
+          (change)="typeFilter = $event.target.value">
+          <option selected value="all">All types</option>
+          <option value="Employee">Employee</option>
+          <option value="Client">Client</option>
         </select>
       </div>
   </div>
@@ -34,7 +38,7 @@
         <div class="col small">Complainee</div>
         <div class="col large">Comments</div>
       </div>
-      <div *ngFor="let issue of (apiService.rawIssues | async)" class="row">
+      <div *ngFor="let issue of (apiService.rawIssues | async) | appFilter:termSearch:statusFilter:typeFilter:filteredMeta" class="row">
         <div class="col small">{{issue.opened}}</div>
         <div class="col small">{{issue.closed}}</div>
         <div class="col small">{{issue.type}}</div>
@@ -45,6 +49,9 @@
           <button class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
         </div>
       </div>
+    </div>
+    <div *ngIf="(apiService.rawIssues | async) !== undefined && filteredMeta?.count === 0" class="no-results">
+        No matches for {{filteredMeta.query}}
     </div>
   </div>
 </div>
