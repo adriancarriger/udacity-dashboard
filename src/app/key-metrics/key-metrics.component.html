@@ -2,7 +2,7 @@
   <div class="chart-container focus">
     <h1>Paying customers</h1>
     <base-chart class="chart"
-      *ngIf="apiService.sales | async"
+      *ngIf="showLineChart"
       [datasets]="(apiService.sales | async).clients"
       [labels]="(apiService.sales | async).dates"
       [colors]="lineChartColors"
@@ -13,14 +13,15 @@
     <div class="col-md-8 chart-container">
       <h1>Reported issues</h1>
       <base-chart class="chart"
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
+        *ngIf="showBarChart"
+        [datasets]="(apiService.issues | async).datasets"
+        [labels]="(apiService.issues | async).labels"
         [colors]="barChartColors"
         [chartType]="'bar'"></base-chart>
     </div>
     <div class="col-md-4 chart-container number-container">
       <div class="number-content">
-        <div class="number-data">10</div>
+        <div class="number-data">{{(apiService.issues | async)?.total}}</div>
         <h1 class="number-label">Open issues</h1>
       </div>
     </div>

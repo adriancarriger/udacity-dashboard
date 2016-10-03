@@ -21,10 +21,11 @@ export class KeyMetricsComponent {
   ];
 
   // Line chart
-  public showLineChart: boolean = true;
+  public showLineChart: boolean = false;
   public lineChartColors: Array<any> = [];
 
   // Bar chart
+  public showBarChart: boolean = false;
   public barChartLabels: any[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public barChartData: any[] = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Client'},
@@ -104,6 +105,8 @@ export class KeyMetricsComponent {
     });
     // Sales data
     this.apiService.sales.subscribe(sales => this.resetChart('Line') );
+    // Issues data
+    this.apiService.issues.subscribe(sales => this.resetChart('Bar') );
   }
 
   // http://stackoverflow.com/a/4025958/5357459
