@@ -69,6 +69,15 @@ $sheetFontSize: 14px;
       &.header {
         font-weight: bold;
         border-bottom-width: 2px;
+        .btn-link {
+          padding: 0;
+          text-decoration: none;
+          font-weight: bold;
+          color: inherit;
+          &.current {
+            color: $primaryColor;
+          }
+        }
       }
       $smallSize: 12%;
       .col {

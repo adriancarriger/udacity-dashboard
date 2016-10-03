@@ -13,5 +13,20 @@ export class AnalyticsComponent {
   public typeFilter: string = 'all';
   public readableQueries: string;
   public filteredMeta = {count: 0};
+  public sortBy: string = 'opened';
+  public desc = true;
   constructor(public apiService: ApiService) { }
+  public updateSort(sortBy): void {
+    let timeSorts = ['opened', 'closed'];
+    if (this.sortBy !== sortBy) {
+      this.sortBy = sortBy;
+      if (timeSorts.indexOf( sortBy ) !== -1) {
+        this.desc = true;
+      } else {
+        this.desc = false;
+      }
+    } else {
+      this.desc = !this.desc;
+    }
+  }
 }

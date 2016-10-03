@@ -31,14 +31,14 @@
   <div class="spreadsheet-container">
     <div class="spreadsheet">
       <div class="row header">
-        <div class="col small">Opened</div>
-        <div class="col small">Closed</div>
-        <div class="col small">Type</div>
-        <div class="col small">Complainer</div>
-        <div class="col small">Complainee</div>
+        <button [ngClass]="{'current': sortBy === 'opened'}" (click)="updateSort('opened')" class="btn btn-link col small">Opened</button>
+        <button [ngClass]="{'current': sortBy === 'closed'}" (click)="updateSort('closed')" class="btn btn-link col small">Closed</button>
+        <button [ngClass]="{'current': sortBy === 'type'}" (click)="updateSort('type')" class="btn btn-link col small">Type</button>
+        <button [ngClass]="{'current': sortBy === 'complainer'}" (click)="updateSort('complainer')" class="btn btn-link col small">Complainer</button>
+        <button [ngClass]="{'current': sortBy === 'complainee'}" (click)="updateSort('complainee')" class="btn btn-link col small">Complainee</button>
         <div class="col large">Comments</div>
       </div>
-      <div *ngFor="let issue of (apiService.rawIssues | async) | appFilter:termSearch:statusFilter:typeFilter:filteredMeta" class="row">
+      <div *ngFor="let issue of (apiService.rawIssues | async) | appFilter:termSearch:statusFilter:typeFilter:filteredMeta | appSort:sortBy:desc" class="row">
         <div class="col small">{{issue.opened}}</div>
         <div class="col small">{{issue.closed}}</div>
         <div class="col small">{{issue.type}}</div>
