@@ -3,7 +3,7 @@ import { KeyMetricsComponent } from './key-metrics.component';
 
 export const keyMetricsRoutes: Route[] = [
   {
-    path: 'key-metrics',
+    path: '',
     data: {
       name: 'Key metrics',
       icon: 'ion-ios-analytics-outline'

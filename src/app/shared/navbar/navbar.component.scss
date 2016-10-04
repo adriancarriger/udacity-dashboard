@@ -75,34 +75,26 @@
 				}
 				@media (max-width: 767px) {
 					border-top: 1px solid white;
-					&:last-of-type {
-						border-bottom: 1px solid white;
+				}
+				&.navbar-header {
+					height: $headerHeight;
+					width: 100%;
+					background-color: $primaryColor;
+					a {
+						color: white;
+					}
+					&:active, &.active-route {
+						border-right: $activeWidth #001dff solid;
+					}
+					.navbar-brand {
+						color: white;
 					}
 				}
 			}
 		}
-		.navbar-header {
-			height: $headerHeight;
-			width: 100%;
-			background-color: $primaryColor;
-			&:active, &.active-route {
-				border-right: $activeWidth #001dff solid;
-			}
-			.navbar-brand {
-				color: white;
-				// @media (max-width: 767px) {
-				// 	padding: 0px 12px;
-				// 	padding-top: 5px;
-				// 	font-size: 42px;
-				// 	margin: 8px;
-				// 	margin-top: 5px;
-				// 	height: 51px;
-				// }
-			}
-		}
 		.nav-links {
 			position: absolute;
-			top: $headerHeight;
+			top: 0;
 			bottom: 0;
 			right: 0;
 			left: 0;
