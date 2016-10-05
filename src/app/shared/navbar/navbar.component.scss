@@ -12,7 +12,6 @@
 		z-index: 99999;
 		padding: 10px;
 		font-size: 20px;
-		height: 60px;
 		color: white;
 		background-color: $primaryColor;
 	}
@@ -27,6 +26,9 @@
 	bottom: 0;
 	left: 0;
 	width: $navWidth;
+	@media (min-width: $mobileBreakPoint + 1px) {
+		z-index: 1;
+	}
 	a {
 		cursor: pointer;
 	}
@@ -34,22 +36,21 @@
 		.navbar-brand, .navbar-nav > li > a {
 			color: gray;
 			width: 92%;
-    	margin: 5px 4%;
+    	margin: 0px 4%;
 			position: relative;
 			$iconSize: 25px;
+			padding: 14px;
+			padding-bottom: 15px;
 			padding-left: $iconSize + 10px;
 			font-size: 16px;
 			&::before {
 				position: absolute;
-				left: 5px;
+				left: 15px;
 				font-size: $iconSize;
 				top: 0;
 				bottom: 0;
 				margin: auto;
 				height: $iconSize;
-			}
-			@media (max-width: 767px) {
-				// margin: 15px;
 			}
 			&:focus:not(:active) {
 				outline: $whiteOutline;
@@ -62,29 +63,42 @@
 			li {
 				width: 100%;
 				border-bottom: 1px solid $lightGray;
+				padding: 5px;
+				position: relative;
 				&:active, &.active-route {
-					border-right: $activeWidth $primaryColor solid;
+					&:before {
+						content: "";
+						display: block;
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						width: $activeWidth;
+						background-color: $primaryColor;
+					}
 					a {
 						color: $primaryColor;
 					}
 				}
 				a {
+					text-align: center;
 					&:focus:not(:active) {
 						outline: solid $lightGray 2px;
 					}
 				}
-				@media (max-width: 767px) {
-					border-top: 1px solid white;
-				}
 				&.navbar-header {
-					height: $headerHeight;
 					width: 100%;
 					background-color: $primaryColor;
 					a {
 						color: white;
+						&:focus:not(:active) {
+							outline-color: white;
+						}
 					}
 					&:active, &.active-route {
-						border-right: $activeWidth #001dff solid;
+						&:before {
+							background-color: #001dff;
+						}
 					}
 					.navbar-brand {
 						color: white;
@@ -102,67 +116,6 @@
 			border-right: 1px solid $lightGray;
 		}
 	}
-}
-.header {
-	position: absolute;
-	left: $navWidth;
-	right: 0;
-	top: 0;
-	background-color: $lighterPrimary;
-	color: white;
-	height: $headerHeight;
-	h1 {
-		margin: 0;
-		font-size: 36px;
-    height: $headerHeight;
-    padding-top: 20px;
-    padding-left: 20px;
-	}
-	// Nav collapse button
-	.navbar-toggle {
-		border: none;
-		position: relative;
-		&:focus {
-			outline: $whiteOutline;
-		}
-		.icon-bar {
-			background-color: white;
-		}
-		&:hover {
-			background-color: initial;
-		}
-		&:focus {
-			background-color: initial;
-		}
-		@media (max-width: 768px) {
-			margin-top: 14px;
-		}
-	}
-	.avatar-container {
-		float: left;
-		margin: 5px 6px;
-		.avatar-message {
-			float: left;
-			padding: 15px 0px;
-		}
-		.image-container {
-			width: 50px;
-			float: left;
-			overflow: hidden;
-			border-radius: 50%;
-			height: 50px;
-			margin-right: 15px;
-			
-			img {
-				width: 100%;
-			}
-		}
-	}
-}
-@media (max-width: 767px) {
-  .mobile-collapse {
-		text-align: center;
-  }
 }
 #start-of-content {
 	position: absolute;

@@ -9,5 +9,6 @@ import { ApiService } from './shared/index';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+  public isClosed = true;
   constructor(public apiService: ApiService) { }
 }

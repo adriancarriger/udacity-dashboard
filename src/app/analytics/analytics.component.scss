@@ -5,10 +5,18 @@ $sheetFontSize: 14px;
 .filter {
   .search-container {
 		position: absolute;
-		right: 15px;
+		left: 15px;
 		top: 14px;
 		margin: auto;
 		height: 30px;
+    @media (max-width: $mobileBreakPoint) {
+      right: 15px;
+      z-index: 1;
+      width: 50%;
+      .search {
+        width: 100%;
+      }
+    }
 		i {
 			position: absolute;
 			color: white;

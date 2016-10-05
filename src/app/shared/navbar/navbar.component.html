@@ -2,7 +2,7 @@
 <nav
 	id="navbar"
 	class="navbar navbar-default">
-	<div [ngClass]="{'not-collapsed': !isCollapsed}" class="nav-links mobile-collapse" >
+	<div class="nav-links mobile-collapse" >
 		<ul *ngIf="routes.length > 1" class="nav navbar-nav">
 			<template ngFor let-route="$implicit" [ngForOf]="routes">
 				<li
@@ -17,24 +17,6 @@
 		</ul>
 	</div>
 </nav>
-<div class="header">
-	<button
-		type="button"
-		class="navbar-toggle"
-		(click)="isCollapsed = !isCollapsed"
-		aria-label="Toggle navigation options">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	</button>
-	<div class="avatar-container">
-		<div class="image-container">
-			<img src="assets/avatar.jpg">
-		</div>
-		<div class="avatar-message">Hello, David</div>
-	</div>
-</div>
 <div
 	#startOfContent
 	id="start-of-content"

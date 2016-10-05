@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { routes } from '../../app.routes';
@@ -11,7 +11,7 @@ import { routes } from '../../app.routes';
 export class NavbarComponent implements OnInit {
   @Input() tabIndex: number;
   @ViewChild('startOfContent') startOfContent;
-  public isCollapsed: boolean = true;
+  @Output() onNav = new EventEmitter();
   public startContentIndex: number = -1;
   public routes = routes;
   public currentPath: string;
@@ -20,13 +20,13 @@ export class NavbarComponent implements OnInit {
   public ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isCollapsed = true;
+        this.onNav.emit();
         this.currentPath = event.url;
         document.body.scrollTop = 0;
         this.skipNavigation();
       }
     }, (error: any) => {
-      this.isCollapsed = true;
+      this.onNav.emit();
     });
   }
 
