@@ -47,12 +47,15 @@ $sheetFontSize: 14px;
   .input-item {
     width: 180px;
     padding: 10px;
-    float: left;
-    &.left {
-      padding-right: 30px;
-    }
-    &.right {
-      padding-left: 30px;
+    margin: 0 auto;
+    @media (min-width: 401px) {
+      float: left;
+      &.left {
+        padding-right: 30px;
+      }
+      &.right {
+        padding-left: 30px;
+      }
     }
     label {
       color: white;
@@ -88,6 +91,7 @@ $sheetFontSize: 14px;
         }
       }
       $smallSize: 12%;
+      $mobileMaxWidth: 290px;
       .col {
         float: left;
         position: relative;
@@ -95,6 +99,9 @@ $sheetFontSize: 14px;
         padding-right: 15px;
         padding-left: 15px;
         font-size: $sheetFontSize;
+        @media (max-width: 350px) {
+          max-width: $mobileMaxWidth;
+        }
       }
       .small {
         width: $smallSize;
@@ -126,6 +133,11 @@ $sheetFontSize: 14px;
               float: left;
             }
           }
+        }
+        @media (max-width: 350px) {
+          &:not(.expanded) .comments {
+            max-width: $mobileMaxWidth - 70px;
+          }   
         }
       }
     }
