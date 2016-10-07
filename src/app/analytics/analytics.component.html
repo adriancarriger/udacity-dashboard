@@ -53,5 +53,8 @@
     <div *ngIf="(apiService.rawIssues | async) !== undefined && filteredMeta?.count === 0" class="no-results">
         No matches for {{filteredMeta.query}}
     </div>
+    <div *ngIf="(apiService.rawIssues | async)?.length === 0" class="no-results">
+        No issues
+    </div>
   </div>
 </div>
