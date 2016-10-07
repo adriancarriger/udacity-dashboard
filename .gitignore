@@ -15,6 +15,7 @@
 *.launch
 .settings/
 spell.json
+.vscode
 
 # misc
 /.sass-cache
