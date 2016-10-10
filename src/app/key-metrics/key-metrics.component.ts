@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../shared/api/api.service';
 
@@ -7,18 +7,7 @@ import { ApiService } from '../shared/api/api.service';
   templateUrl: 'key-metrics.component.html',
   styleUrls: ['key-metrics.component.scss']
 })
-export class KeyMetricsComponent {
-
-  // All colors
-  private colors = [
-    'rgba(0, 157, 255,',
-    'rgba(57, 255, 182,',
-    'rgba(0, 16, 255,',
-    'rgba(0, 255, 24,',
-    'rgba(0, 216, 255,',
-    'rgba(99, 245, 255,',
-    'rgba(255, 239, 0,'
-  ];
+export class KeyMetricsComponent implements OnInit {
 
   // Line chart
   public showLineChart: boolean = false;
@@ -42,8 +31,20 @@ export class KeyMetricsComponent {
       position: 'right'
     }
   };
-  private pieChartColors: any[] = []; 
-  
+
+  // All colors
+  private colors = [
+    'rgba(0, 157, 255,',
+    'rgba(57, 255, 182,',
+    'rgba(0, 16, 255,',
+    'rgba(0, 255, 24,',
+    'rgba(0, 216, 255,',
+    'rgba(99, 245, 255,',
+    'rgba(255, 239, 0,'
+  ];
+
+  private pieChartColors: any[] = [];
+
   constructor(public apiService: ApiService) { }
 
   public ngOnInit(): void {
@@ -86,7 +87,7 @@ export class KeyMetricsComponent {
       let temp = {
         cities: [],
         clients: []
-      }
+      };
       for (let i = 0; i < branches.length; i++) {
         if (branches[i].clients > 0) {
           temp.cities.push( branches[i].city );
@@ -114,7 +115,7 @@ export class KeyMetricsComponent {
     if (arr1.length !== arr2.length) {
       return false;
     }
-    for (let i = arr1.length; i--;) {
+    for (let i = arr1.length; i--; ) {
       if (arr1[i] !== arr2[i]) {
         return false;
       }
@@ -128,5 +129,5 @@ export class KeyMetricsComponent {
       this['show' + name + 'Chart']  = true;
     }, 0);
   }
-  
+
 }

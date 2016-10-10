@@ -8,7 +8,7 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { MapStyles } from './map-styles';
+import { mapStyles } from './map-styles';
 import { ApiService } from '../shared/api/api.service';
 
 @Component({
@@ -17,7 +17,7 @@ import { ApiService } from '../shared/api/api.service';
   styleUrls: ['geospacial.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GeospacialComponent implements AfterViewInit, OnDestroy {
+export class GeospacialComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('map') map;
   @ViewChildren('branches') branches;
   public isCollapsed: boolean = true;
@@ -27,9 +27,9 @@ export class GeospacialComponent implements AfterViewInit, OnDestroy {
     lng: -75.6624,
     zoom: 6,
     height: undefined,
-    styles: MapStyles,
+    styles: mapStyles,
     loaded: false
-  }
+  };
   public isOpen = false;
 
   constructor(public apiService: ApiService) { }
@@ -64,9 +64,9 @@ export class GeospacialComponent implements AfterViewInit, OnDestroy {
     this.branches.forEach(branch => {
       let el = branch.content.parentElement.parentElement.previousSibling;
       if (el !== undefined && el.classList !== undefined) {
-        el.classList.add("map-label");
+        el.classList.add('map-label');
       }
-      if (el === undefined || el.classList === undefined || !el.classList.contains("map-label")) {
+      if (el === undefined || el.classList === undefined || !el.classList.contains('map-label')) {
         scheduleUpdate = true;
       }
     });

@@ -28,10 +28,10 @@ export class FilterPipe implements PipeTransform {
       // status filter  
       if (status !== 'all') {
        if (status === 'Open' && item.closed !== '') {
-         return
+         return;
        }
        if (status === 'Closed' && item.closed === '') {
-         return
+         return;
        }
       }
       // Type filter

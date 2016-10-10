@@ -33,7 +33,7 @@ export class SortPipe implements PipeTransform {
     if (date === '') {
       return moment().valueOf();
     }
-    return moment(date, "MM/DD/YYYY").valueOf();
+    return moment(date, 'MM/DD/YYYY').valueOf();
   }
 
 }

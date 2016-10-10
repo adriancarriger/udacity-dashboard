@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import * as moment from 'moment';
@@ -24,7 +24,6 @@ export class ApiService {
     this.updateRunning = af.database.object('server/run_info/running');
   }
   public checkForUpdates(): void {
-    let interval;
     // If not running
     this.updateRunning.subscribe( data => {
       if (data.$value === false ) {
