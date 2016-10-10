@@ -12,12 +12,6 @@
     </div>
   </div>
   <div class="chart-row">
-    <div class="col-md-4 chart-container number-container">
-      <div class="number-content">
-        <div class="number-data">{{(apiService.issues | async)?.total}}</div>
-        <h1 class="number-label">Open issues</h1>
-      </div>
-    </div>
     <div class="col-md-8 chart-container">
       <h1>Reported issues</h1>
       <div *ngIf="showBarChart">
@@ -27,6 +21,12 @@
           [colors]="barChartColors"
           [options]="barChartOptions"
           [chartType]="'bar'"></canvas>
+      </div>
+    </div>
+    <div class="col-md-4 chart-container number-container">
+      <div class="number-content">
+        <div class="number-data">{{(apiService.issues | async)?.total}}</div>
+        <h1 class="number-label">Open issues</h1>
       </div>
     </div>
   </div>

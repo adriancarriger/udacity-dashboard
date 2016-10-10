@@ -71,7 +71,7 @@
 						display: block;
 						position: absolute;
 						top: 0;
-						right: 0;
+						right: -1px;
 						bottom: 0;
 						width: $activeWidth;
 						background-color: $primaryColor;
@@ -87,8 +87,9 @@
 					}
 				}
 				&.navbar-header {
-					width: 100%;
+					width: calc(100% + 1px);
 					background-color: $primaryColor;
+					border-bottom-color: $primaryColor;
 					a {
 						color: white;
 						&:focus:not(:active) {
@@ -98,6 +99,8 @@
 					&:active, &.active-route {
 						&:before {
 							background-color: #001dff;
+							right: 0;
+							bottom: -1px;
 						}
 					}
 					.navbar-brand {
