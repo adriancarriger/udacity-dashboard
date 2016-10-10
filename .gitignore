@@ -10,12 +10,12 @@
 
 # IDEs and editors
 /.idea
+/.vscode
 .project
 .classpath
 *.launch
 .settings/
 spell.json
-.vscode
 
 # misc
 /.sass-cache

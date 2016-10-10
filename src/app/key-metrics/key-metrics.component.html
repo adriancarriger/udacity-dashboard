@@ -1,13 +1,14 @@
 <div class="content-area">
   <div class="chart-container focus">
     <h1>Paying customers</h1>
-    <base-chart class="chart"
-      *ngIf="showLineChart"
-      [datasets]="(apiService.sales | async).clients"
-      [labels]="(apiService.sales | async).dates"
-      [colors]="lineChartColors"
-      [legend]="false"
-      [chartType]="'line'"></base-chart>
+    <div *ngIf="showLineChart">
+      <canvas baseChart class="chart"
+        [datasets]="(apiService.sales | async).clients"
+        [labels]="(apiService.sales | async).dates"
+        [colors]="lineChartColors"
+        [legend]="false"
+        [chartType]="'line'"></canvas>
+    </div>
   </div>
   <div class="chart-row">
     <div class="col-md-4 chart-container number-container">
@@ -18,22 +19,24 @@
     </div>
     <div class="col-md-8 chart-container">
       <h1>Reported issues</h1>
-      <base-chart class="chart"
-        *ngIf="showBarChart"
-        [datasets]="(apiService.issues | async).datasets"
-        [labels]="(apiService.issues | async).labels"
-        [colors]="barChartColors"
-        [chartType]="'bar'"></base-chart>
+      <div *ngIf="showBarChart">
+        <canvas baseChart class="chart"
+          [datasets]="(apiService.issues | async).datasets"
+          [labels]="(apiService.issues | async).labels"
+          [colors]="barChartColors"
+          [chartType]="'bar'"></canvas>
+      </div>
     </div>
   </div>
   <div *ngIf="pieChartData.length > 0" class="chart-container pie">
     <h1>Customers by branch</h1>
-    <base-chart class="chart"
-      *ngIf="showPieChart"
-      [data]="pieChartData"
-      [labels]="pieChartLabels"
-      [colors]="pieChartColors"
-      [options]="pieChartOptions"
-      [chartType]="'pie'"></base-chart>
+    <div *ngIf="showPieChart">
+      <canvas baseChart class="chart"
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [colors]="pieChartColors"
+        [options]="pieChartOptions"
+        [chartType]="'pie'"></canvas>
+    </div>
   </div>
 </div>
