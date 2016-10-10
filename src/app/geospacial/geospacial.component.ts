@@ -62,6 +62,9 @@ export class GeospacialComponent implements OnInit, AfterViewInit, OnDestroy {
     let scheduleUpdate = false;
     this.isOpen = true;
     this.branches.forEach(branch => {
+      if (branch.content === null || branch.content.parentElement === null) {
+        return;
+      }
       let el = branch.content.parentElement.parentElement.previousSibling;
       if (el !== undefined && el.classList !== undefined) {
         el.classList.add('map-label');
