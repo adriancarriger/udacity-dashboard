@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 
 import { SharedModule } from './shared/shared.module';
+import { SimpleChartsModule } from './charts/charts.module';
 import { GeospacialModule } from './geospacial/geospacial.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { KeyMetricsModule } from './key-metrics/key-metrics.module';
@@ -23,6 +24,7 @@ import { KeyMetricsModule } from './key-metrics/key-metrics.module';
     HttpModule,
     RouterModule.forRoot(routes),
     SharedModule.forRoot(),
+    SimpleChartsModule.forRoot(),
     GeospacialModule,
     AnalyticsModule,
     KeyMetricsModule,

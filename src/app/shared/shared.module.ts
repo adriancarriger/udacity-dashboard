@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { NavbarComponent } from './navbar/index';
 import { CroppedImageComponent } from './cropped-image/index';
 import { ApiService } from './api/api.service';
 import { firebaseConfig } from './firebase-config';
+import { SimpleChartsModule } from '../charts/charts.module';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -19,7 +19,7 @@ import { firebaseConfig } from './firebase-config';
     CommonModule,
     RouterModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    ChartsModule
+    SimpleChartsModule
   ],
   declarations: [
     NavbarComponent,
@@ -29,9 +29,9 @@ import { firebaseConfig } from './firebase-config';
     CommonModule,
     FormsModule,
     RouterModule,
+    SimpleChartsModule,
     NavbarComponent,
     CroppedImageComponent,
-    ChartsModule
   ]
 })
 export class SharedModule {

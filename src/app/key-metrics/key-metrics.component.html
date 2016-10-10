@@ -1,27 +1,19 @@
 <div class="content-area">
   <div class="chart-container focus">
     <h1>Paying customers</h1>
-    <div *ngIf="showLineChart">
-      <canvas baseChart class="chart"
-        [datasets]="(apiService.sales | async).clients"
-        [labels]="(apiService.sales | async).dates"
-        [colors]="lineChartColors"
-        [legend]="false"
-        [options]="lineChartOptions"
-        [chartType]="'line'"></canvas>
-    </div>
+    <app-chart
+      [datasets]="(apiService.sales | async)?.clients"
+      [labels]="(apiService.sales | async)?.dates"
+      [legend]="false"
+      [chartType]="'line'"></app-chart>
   </div>
   <div class="chart-row">
     <div class="col-md-8 chart-container">
       <h1>Reported issues</h1>
-      <div *ngIf="showBarChart">
-        <canvas baseChart class="chart"
-          [datasets]="(apiService.issues | async).datasets"
-          [labels]="(apiService.issues | async).labels"
-          [colors]="barChartColors"
-          [options]="barChartOptions"
-          [chartType]="'bar'"></canvas>
-      </div>
+      <app-chart
+        [datasets]="(apiService.issues | async)?.datasets"
+        [labels]="(apiService.issues | async)?.labels"
+        [chartType]="'bar'"></app-chart>
     </div>
     <div class="col-md-4 chart-container number-container">
       <div class="number-content">
@@ -32,13 +24,9 @@
   </div>
   <div *ngIf="pieChartData.length > 0" class="chart-container pie">
     <h1>Customers by branch</h1>
-    <div *ngIf="showPieChart">
-      <canvas baseChart class="chart"
-        [data]="pieChartData"
-        [labels]="pieChartLabels"
-        [colors]="pieChartColors"
-        [options]="pieChartOptions"
-        [chartType]="'pie'"></canvas>
-    </div>
+    <app-chart
+      [data]="pieChartData"
+      [labels]="pieChartLabels"
+      [chartType]="'pie'"></app-chart>
   </div>
 </div>

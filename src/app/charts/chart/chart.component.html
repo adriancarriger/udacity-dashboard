@@ -1,0 +1,13 @@
+<div #chart *ngIf="showChart">
+  <canvas baseChart class="chart"
+    [data]="data"
+    [datasets]="datasets"
+    [labels]="labels"
+    [legend]="false"
+    [colors]="colors"
+    [options]="options"
+    [chartType]="chartType"></canvas>
+</div>
+<div class="spin-container" *ngIf="!showChart" [style.height]="tempHeight">
+  <div class="spin-progress"><div>Loading…</div></div>
+</div>
