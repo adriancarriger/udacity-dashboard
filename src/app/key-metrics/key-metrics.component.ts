@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 import { ApiService } from '../shared/api/api.service';
 
@@ -12,6 +13,11 @@ export class KeyMetricsComponent implements OnInit {
   // Line chart
   public showLineChart: boolean = false;
   public lineChartColors: Array<any> = [];
+  public lineChartOptions: any = {
+    animation: {
+      duration: 700
+    }
+  };
 
   // Bar chart
   public showBarChart: boolean = false;
@@ -20,6 +26,11 @@ export class KeyMetricsComponent implements OnInit {
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Client'},
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Employee'}
   ];
+  public barChartOptions: any = {
+    animation: {
+      duration: 700
+    }
+  };
   public barChartColors: Array<any> = [];
 
   // Pie chart
@@ -29,6 +40,9 @@ export class KeyMetricsComponent implements OnInit {
   public pieChartOptions: any = {
     legend: {
       position: 'right'
+    },
+    animation: {
+      duration: 700
     }
   };
 
@@ -44,6 +58,7 @@ export class KeyMetricsComponent implements OnInit {
   ];
 
   private pieChartColors: any[] = [];
+  private resetHistory = { };
 
   constructor(public apiService: ApiService) { }
 
@@ -95,7 +110,8 @@ export class KeyMetricsComponent implements OnInit {
         }
       }
       let resetNeeded = false;
-      if (!this.arraysEqual(this.pieChartLabels, temp.cities)) {
+      if (!this.arraysEqual(this.pieChartLabels, temp.cities)
+        || this.pieChartOptions.animation.duration !== 0) {
         resetNeeded = true;
       }
       this.pieChartLabels = temp.cities;
@@ -123,7 +139,15 @@ export class KeyMetricsComponent implements OnInit {
     return true;
   }
 
-  private resetChart(name): void {
+  private resetChart(name: string): void {
+    if (this.resetHistory[name] !== undefined
+      && moment().valueOf() - this.resetHistory[name] < 1000) {
+        return;
+    }
+    if (this.resetHistory[name] !== undefined) {
+      this[name.toLowerCase() + 'ChartOptions'].animation.duration = 0;
+    }
+    this.resetHistory[name] = moment().valueOf();
     this['show' + name + 'Chart'] = false;
     setTimeout( () => {
       this['show' + name + 'Chart']  = true;

@@ -7,6 +7,7 @@
         [labels]="(apiService.sales | async).dates"
         [colors]="lineChartColors"
         [legend]="false"
+        [options]="lineChartOptions"
         [chartType]="'line'"></canvas>
     </div>
   </div>
@@ -24,6 +25,7 @@
           [datasets]="(apiService.issues | async).datasets"
           [labels]="(apiService.issues | async).labels"
           [colors]="barChartColors"
+          [options]="barChartOptions"
           [chartType]="'bar'"></canvas>
       </div>
     </div>
