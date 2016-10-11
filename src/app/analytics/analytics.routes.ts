@@ -3,9 +3,9 @@ import { AnalyticsComponent } from './analytics.component';
 
 export const analyticsRoutes: Route[] = [
   {
-    path: 'analytics',
+    path: 'data-view',
     data: {
-      name: 'Analytics',
+      name: 'Data view',
       icon: 'ion-arrow-graph-up-right'
     },
     component: AnalyticsComponent

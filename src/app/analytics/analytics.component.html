@@ -1,4 +1,6 @@
 <div class="content-area">
+  <h1 class="title">{{ (apiService.routeInfo | async)?.analytics.title }}</h1>
+  <p>{{ (apiService.routeInfo | async)?.analytics.subtitle }}</p>
   <div class="filter">
     <div class="search-container">
       <input

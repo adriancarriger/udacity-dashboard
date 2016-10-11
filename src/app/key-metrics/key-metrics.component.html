@@ -1,4 +1,6 @@
 <div class="content-area">
+  <h1 class="title">{{ (apiService.routeInfo | async)?.key_metrics.title }}</h1>
+  <p>{{ (apiService.routeInfo | async)?.key_metrics.subtitle }}</p>
   <div class="chart-container focus">
     <h1>Paying customers</h1>
     <app-chart
@@ -9,7 +11,7 @@
   </div>
   <div class="chart-row">
     <div
-      [routerLink]="['/analytics']" 
+      [routerLink]="['/data-view']" 
       class="col-md-8 chart-container reported-issues">
       <h1>Reported issues</h1>
       <app-chart
@@ -20,7 +22,7 @@
     <div class="col-md-4 chart-container number-container">
       <div
         class="number-content"
-        [routerLink]="['/analytics']"
+        [routerLink]="['/data-view']"
         [queryParams]="{ status: 'Open' }">
         <div class="number-data">{{(apiService.issues | async)?.total}}</div>
         <h1 class="number-label">Open issues</h1>

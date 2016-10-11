@@ -1,6 +1,6 @@
 <div class="content-area">
-  <h1 class="title">Employee map</h1>
-  <p>Employee count per branch</p>
+  <h1 class="title">{{ (apiService.routeInfo | async)?.geospacial.title }}</h1>
+  <p>{{ (apiService.routeInfo | async)?.geospacial.subtitle }}</p>
 </div>
 <div class="map" #map [ngClass]="{'loaded': mapMeta.loaded}">
   <sebm-google-map

@@ -13,6 +13,7 @@ export class ApiService {
   public currentDate: FirebaseObjectObservable<any[]>;
   public lastUpdate: FirebaseObjectObservable<any>;
   public updateRunning: FirebaseObjectObservable<any>;
+  public routeInfo: FirebaseObjectObservable<any>;
   public interval;
   constructor(af: AngularFire, private http: Http) {
     this.branches = af.database.list('client/branches');
@@ -22,6 +23,7 @@ export class ApiService {
     this.rawIssues = af.database.list('client/issues_raw');
     this.lastUpdate = af.database.object('server/run_info/last_update');
     this.updateRunning = af.database.object('server/run_info/running');
+    this.routeInfo = af.database.object('client/tabs');
   }
   public checkForUpdates(): void {
     // If not running

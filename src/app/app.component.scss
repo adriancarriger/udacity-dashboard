@@ -6,6 +6,11 @@ html, body {
 h1 {
   font-weight: 200;
 }
+.title {
+  margin: 0;
+  font-weight: 200;
+  font-size: 25px;
+}
 @media (max-width: $mobileBreakPoint) {
 	.navbar {
 		transform: translateX(0);
