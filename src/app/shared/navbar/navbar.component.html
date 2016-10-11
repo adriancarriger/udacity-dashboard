@@ -15,8 +15,11 @@
 				</li>
 			</template>
 		</ul>
-		<div class="logo-container">
+		<div *ngIf="logoLoaded" class="logo-container">
 			<img [src]="logo.src" [alt]="logo.alt">
+			<div class="github-link">
+				<a href="https://github.com/adriancarriger/udacity-dashboard" target="_blank">Github <i class="ion-share"></i></a>
+			</div>
 		</div>
 	</div>
 </nav>

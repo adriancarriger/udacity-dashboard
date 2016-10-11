@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   public currentPath: string;
   // Logo
   public logo = {};
+  public logoLoaded = false;
   private logoOptions = {
     default: {
       src: 'assets/dunder-mifflin.jpg',
@@ -72,6 +73,7 @@ export class NavbarComponent implements OnInit {
     } else {
       this.logo = this.logoOptions.default;
     }
+    this.logoLoaded = true;
   }
 
 }
