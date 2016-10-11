@@ -16,7 +16,10 @@
         [chartType]="'bar'"></app-chart>
     </div>
     <div class="col-md-4 chart-container number-container">
-      <div class="number-content">
+      <div
+        class="number-content"
+        [routerLink]="['/analytics']"
+        [queryParams]="{ status: 'Open' }">
         <div class="number-data">{{(apiService.issues | async)?.total}}</div>
         <h1 class="number-label">Open issues</h1>
       </div>

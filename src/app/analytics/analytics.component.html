@@ -14,8 +14,8 @@
       <div class="input-item left">
         <select
           (change)="statusFilter = $event.target.value">
-          <option selected value="all">All statuses</option>
-          <option>Open</option>
+          <option [selected]="currentStatus === 'all'" value="all">All statuses</option>
+          <option [selected]="currentStatus === 'Open'">Open</option>
           <option>Closed</option>
         </select>
       </div>
