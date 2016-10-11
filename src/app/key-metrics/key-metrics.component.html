@@ -8,7 +8,9 @@
       [chartType]="'line'"></app-chart>
   </div>
   <div class="chart-row">
-    <div class="col-md-8 chart-container">
+    <div
+      [routerLink]="['/analytics']" 
+      class="col-md-8 chart-container reported-issues">
       <h1>Reported issues</h1>
       <app-chart
         [datasets]="(apiService.issues | async)?.datasets"

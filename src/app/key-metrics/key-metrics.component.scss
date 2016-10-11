@@ -58,6 +58,9 @@ $paddingBottom: 57%;
       }
     }
   }
+  &.reported-issues {
+    cursor: pointer;
+  }
 }
 .chart-row {
   padding: 0 40px;
