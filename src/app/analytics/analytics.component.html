@@ -15,7 +15,7 @@
     <div class="input-area">
       <div class="input-item left">
         <select
-          (change)="statusFilter = $event.target.value">
+          (change)="currentStatus = $event.target.value">
           <option [selected]="currentStatus === 'all'" value="all">All statuses</option>
           <option [selected]="currentStatus === 'Open'">Open</option>
           <option>Closed</option>
@@ -40,7 +40,7 @@
         <button [ngClass]="{'current': sortBy === 'complainee'}" (click)="updateSort('complainee')" class="btn btn-link col small">Complainee <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('complainee', false), 'ion-ios-arrow-up' : !arrowDesc('complainee', false) }"></span></button>
         <div class="col large">Comments</div>
       </div>
-      <div *ngFor="let issue of (apiService.rawIssues | async) | appFilter:termSearch:statusFilter:typeFilter:filteredMeta | appSort:sortBy:desc" class="row">
+      <div *ngFor="let issue of (apiService.rawIssues | async) | appFilter:termSearch:currentStatus:typeFilter:filteredMeta | appSort:sortBy:desc" class="row">
         <div class="col small">{{issue.opened}}</div>
         <div class="col small">{{issue.closed}}</div>
         <div class="col small">{{issue.type}}</div>

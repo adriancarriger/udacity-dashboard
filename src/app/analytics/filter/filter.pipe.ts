@@ -12,7 +12,7 @@ export class FilterPipe implements PipeTransform {
     type?,
     filteredMeta?): any {
     let queries: Array<string> = [];
-    if (value === undefined) { return; }
+    if (value === undefined || value === null) { return; }
     if (term === '' && status === 'all' && type === 'all') {
       filteredMeta.count = -1; // filter not active 
       return value;

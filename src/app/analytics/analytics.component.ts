@@ -10,7 +10,6 @@ import { ApiService } from '../shared/api/api.service';
 })
 export class AnalyticsComponent implements OnInit {
   public termSearch: string = '';
-  public statusFilter: string = 'all';
   public typeFilter: string = 'all';
   public readableQueries: string;
   public filteredMeta = {count: 0};
