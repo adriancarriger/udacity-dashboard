@@ -117,21 +117,15 @@
 			left: 0;
 			border: none;
 			border-right: 1px solid $lightGray;
-			.logo-container {
+			.github-link {
+				text-align: center;
+				padding: 20px;
 				position: absolute;
 				bottom: 0;
-				left: 0;
 				right: 0;
-				padding: 30px;
-				img {
-					width: 100%;
-				}
-				.github-link {
-					text-align: center;
-					padding: 10px;
-					a {
-						color: gray;
-					}
+				left: 0;
+				a {
+					color: gray;
 				}
 			}
 		}

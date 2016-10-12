@@ -22,4 +22,5 @@
     <div class="current-date">Today's date: <time>{{ (apiService.currentDate | async)?.$value / 1000 | amFromUnix | amDateFormat:'LL' }}</time></div>
     <router-outlet></router-outlet>
   </div>
+  <app-logo class="logo"></app-logo>
 </div>

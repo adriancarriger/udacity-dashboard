@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angu
 import { Router, NavigationEnd } from '@angular/router';
 
 import { routes } from '../../app.routes';
-import { ApiService } from '../api/api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,21 +15,8 @@ export class NavbarComponent implements OnInit {
   public startContentIndex: number = -1;
   public routes = routes;
   public currentPath: string;
-  // Logo
-  public logo = {};
-  public logoLoaded = false;
-  private logoOptions = {
-    default: {
-      src: 'assets/dunder-mifflin.jpg',
-      alt: 'logo for Dunder Mifflin'
-    },
-    sabre: {
-      src: 'assets/dunder-mifflin-sabre.jpg',
-      alt: 'logo for Dunder Mifflin - a division of Sabre'
-    }
-  };
 
-  constructor(public apiService: ApiService, private router: Router) {}
+  constructor(private router: Router) {}
 
   public ngOnInit(): void {
     this.router.events.subscribe(event => {
@@ -43,7 +29,6 @@ export class NavbarComponent implements OnInit {
     }, (error: any) => {
       this.onNav.emit();
     });
-    this.apiService.currentDate.subscribe( data => this.updateLogo( data['$value'] ) );
   }
 
   /**
@@ -65,15 +50,6 @@ export class NavbarComponent implements OnInit {
    */
   public startContentBlur(): void {
     this.startContentIndex = -1;
-  }
-
-  private updateLogo(stamp) {
-    if (stamp >= 1261112400000 && stamp < 1336622400000) {
-      this.logo = this.logoOptions.sabre;
-    } else {
-      this.logo = this.logoOptions.default;
-    }
-    this.logoLoaded = true;
   }
 
 }

@@ -9,6 +9,7 @@ import { CroppedImageComponent } from './cropped-image/index';
 import { ApiService } from './api/api.service';
 import { firebaseConfig } from './firebase-config';
 import { SimpleChartsModule } from '../charts/charts.module';
+import { LogoComponent } from './logo/logo.component';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.
@@ -23,7 +24,8 @@ import { SimpleChartsModule } from '../charts/charts.module';
   ],
   declarations: [
     NavbarComponent,
-    CroppedImageComponent
+    CroppedImageComponent,
+    LogoComponent
   ],
   exports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { SimpleChartsModule } from '../charts/charts.module';
     RouterModule,
     SimpleChartsModule,
     NavbarComponent,
+    LogoComponent,
     CroppedImageComponent,
   ]
 })
