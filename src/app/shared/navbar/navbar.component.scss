@@ -117,15 +117,17 @@
 			left: 0;
 			border: none;
 			border-right: 1px solid $lightGray;
-			.github-link {
-				text-align: center;
-				padding: 20px;
+			.nav-footer {
 				position: absolute;
 				bottom: 0;
 				right: 0;
 				left: 0;
-				a {
-					color: gray;
+				.github-link {
+					text-align: center;
+					padding: 20px;
+					a {
+						color: gray;
+					}
 				}
 			}
 		}
