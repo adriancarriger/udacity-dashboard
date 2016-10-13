@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ColorsService {
-  
+
   // All colors
   private colorsInput = [
     'rgba(0, 157, 255,',
@@ -25,9 +25,7 @@ export class ColorsService {
     pie: []
   };
   private generated = false;
-  
-  constructor() { }
-  
+
   public get(type: string) {
     if (!this.generated) { this.generateColors(); }
     return this.colorsOutput[type.toLowerCase()];

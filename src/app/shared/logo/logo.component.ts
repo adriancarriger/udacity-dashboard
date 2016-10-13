@@ -28,7 +28,7 @@ export class LogoComponent implements OnInit {
   constructor(public apiService: ApiService) { }
 
   ngOnInit() {
-    //this.apiService.currentDate.subscribe( data => this.updateLogo( data['$value'] ) );
+    this.apiService.currentDate.subscribe( data => this.updateLogo( data['$value'] ) );
   }
 
   private updateLogo(stamp) {

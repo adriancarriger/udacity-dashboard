@@ -1,9 +1,9 @@
 <div #chart class="spin-container" [style.height]="showChart ? null : tempHeight">
   <div *ngIf="showChart">
     <canvas baseChart class="chart"
-      [data]="data"
-      [datasets]="datasets"
-      [labels]="labels"
+      [data]="dataOutput"
+      [datasets]="datasetsOutput"
+      [labels]="labelsOutput"
       [legend]="legend"
       [colors]="colors"
       [options]="options"

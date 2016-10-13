@@ -9,15 +9,15 @@ import { ColorsService } from '../colors/colors.service';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit, OnChanges {
-  @Input('data') dataInput;
-  @Input('datasets') datasetsInput;
-  @Input('labels') labelsInput;
+  @Input() data;
+  @Input() datasets;
+  @Input() labels;
   @Input() legend;
   @Input() chartType: string;
   @ViewChild('chart') chart;
-  public datasets;
-  public data;
-  public labels;
+  public datasetsOutput;
+  public dataOutput;
+  public labelsOutput;
   public colors;
   public showChart = false;
   public options: any = {
@@ -28,7 +28,6 @@ export class ChartComponent implements OnInit, OnChanges {
   public tempHeight: string;
   private resetOnNextChange = false;
   private lastReset: number;
-  private dataKey: string;
 
   constructor(public colorsService: ColorsService) { }
 
@@ -48,15 +47,15 @@ export class ChartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
-    
+
     // Remove the chart if passed null data
-    if (!('labelsInput' in changes) || changes.labelsInput.currentValue === null) {
+    if (!('labels' in changes) || changes.labels.currentValue === null) {
       this.removeChart();
       return;
     }
     // Reset chart if labels change
-    if (changes.labelsInput.previousValue === null
-      || !this.arraysEqual(changes.labelsInput.currentValue, changes.labelsInput.previousValue)
+    if (changes.labels.previousValue === null
+      || !this.arraysEqual(changes.labels.currentValue, changes.labels.previousValue)
       || this.resetOnNextChange) {
       this.resetChart();
     } else {
@@ -99,9 +98,9 @@ export class ChartComponent implements OnInit, OnChanges {
    * the chart
    */
   private updateChart(): void {
-    this.data = this.dataInput;
-    this.datasets = this.datasetsInput;
-    this.labels = this.labelsInput;
+    this.dataOutput = this.data;
+    this.datasetsOutput = this.datasets;
+    this.labelsOutput = this.labels;
     this.showChart = true;
   }
 
