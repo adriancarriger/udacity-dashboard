@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.onNav.emit();
-        this.currentPath = event.url;
+        this.currentPath = event.url.split('?')[0];
         document.body.scrollTop = 0;
         this.skipNavigation();
       }
