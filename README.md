@@ -12,7 +12,7 @@ A corporate dashboard app.
 
 ## Tech Stack
 
-* Front end: [Angular 2](https://github.com/angular/angular) version ~2.0.0
+* Front end: [Angular 2](https://github.com/angular/angular) version 2.2.1
 * Scaffolding: [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.21
 
 ## Development server
