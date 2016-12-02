@@ -118,6 +118,8 @@
     "pipe-naming": [true, "camelCase", "app"],
     "no-attribute-parameter-decorator": true,
     "no-forward-ref" :true,
-    "trailing-comma": true
+    "trailing-comma": true,
+    "templates-use-public": true,
+    "invoke-injectable": true
   }
 }
