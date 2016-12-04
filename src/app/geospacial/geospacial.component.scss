@@ -15,31 +15,4 @@
   &.loaded:before {
     display: none;
   }
-  .sebm-google-map-container {
-    .branch-container {
-      .branch-location {
-        color: $primaryColor;
-      }
-      .branch-employees {
-        background-color: $primaryColor;
-        width: 23px;
-        height: 23px;
-        color: white;
-        padding: 3px 4px;
-        border-radius: 50%;
-        margin: 0 auto;
-      }
-    }
-  }
-
-  .gm-style-iw  {
-    top: 62px !important; // override style attribute from map directive
-    text-align: center;
-    & ~ div {
-      display: none;
-    }
-  }
-  .map-label {
-    display: none;
-  }
 }

@@ -4,7 +4,7 @@
 </div>
 <div class="map" #map [ngClass]="{'loaded': mapMeta.loaded}">
   <sebm-google-map
-    (idle)="updateLabels(); mapMeta.loaded = true"
+    (idle)="mapMeta.loaded = true"
     [latitude]="mapMeta.lat"
     [longitude]="mapMeta.lng"
     [zoom]="mapMeta.zoom"
@@ -20,11 +20,8 @@
         [latitude]="branch.lat"
         [longitude]="branch.lng"
         [disableAutoPan]="true"
-        [isOpen]="isOpen">
-        <div class="branch-container">
-          <div class="branch-employees">{{branch.employees}}</div>
-          <div class="branch-location">{{branch.city}}, {{branch.state}}</div>
-        </div>
+        [isOpen]="true">
+        <div class="branch-container">{{branch.employees}} {{branch.city}}, {{branch.state}}</div>
       </sebm-google-map-info-window>
     </template>
   </sebm-google-map>
