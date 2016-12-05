@@ -17,13 +17,13 @@ export class SortPipe implements PipeTransform {
         value.sort( (a, b) => {
           a = this.timeValue(a[sortBy]);
           b = this.timeValue(b[sortBy]);
-          return desc ?  b - a : a - b;
+          return desc ? b - a : a - b;
         });
       } else {
         value.sort( (a, b) => {
           a = a[sortBy];
           b = b[sortBy];
-          return desc ? b > a : a > b;
+          return desc ? b.localeCompare(a) : a.localeCompare(b);
         });
       }
       return value;
