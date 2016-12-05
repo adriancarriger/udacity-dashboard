@@ -28,6 +28,6 @@ export class GeospacialComponent implements OnInit {
   constructor(public apiService: ApiService) { }
 
   ngOnInit() {
-    this.mapMeta.height = (window.innerHeight - this.map.nativeElement.offsetTop) + 'px';
+    this.mapMeta.height = (window.innerHeight - this.map.nativeElement.offsetTop) - 50 + 'px';
   }
 }
