@@ -48,7 +48,7 @@
         <div class="col small">{{issue.complainee}}</div>
         <div class="col large comments-container" [ngClass]="{'expanded': issue.expand === true}">
           <span class="comments">{{issue.comments}}</span> 
-          <button class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
+          <button *ngIf="issue.comments.length > 39" class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
         </div>
       </div>
     </div>
