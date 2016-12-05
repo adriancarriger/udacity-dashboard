@@ -2,9 +2,8 @@
   <h1 class="title">{{ (apiService.routeInfo | async)?.geospacial.title }}</h1>
   <p>{{ (apiService.routeInfo | async)?.geospacial.subtitle }}</p>
 </div>
-<div class="map" #map [ngClass]="{'loaded': mapMeta.loaded}">
+<div class="map loaded" #map>
   <sebm-google-map
-    (idle)="mapMeta.loaded = true"
     [latitude]="mapMeta.lat"
     [longitude]="mapMeta.lng"
     [zoom]="mapMeta.zoom"
@@ -16,7 +15,6 @@
     <template ngFor let-branch [ngForOf]="apiService.branches | async">
       <sebm-google-map-info-window
         *ngIf="branch.employees > 0"
-        #branches
         [latitude]="branch.lat"
         [longitude]="branch.lng"
         [disableAutoPan]="true"
