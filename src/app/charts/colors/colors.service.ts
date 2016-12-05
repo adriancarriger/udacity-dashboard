@@ -9,9 +9,14 @@ export class ColorsService {
     'rgba(57, 255, 182,',
     'rgba(0, 16, 255,',
     'rgba(0, 255, 24,',
-    'rgba(0, 216, 255,',
+    'rgba(255, 0, 161,',
     'rgba(99, 245, 255,',
-    'rgba(255, 239, 0,'
+    'rgba(255, 239, 0,',
+    'rgba(27, 60, 243,',
+    'rgba(243, 67, 27,',
+    'rgba(0, 216, 255,',
+    'rgba(172, 249, 33,',
+    'rgba(25, 71, 255,'
   ];
   private opacityInput = {
     bar: 1,
