@@ -38,6 +38,7 @@
         <button [ngClass]="{'current': sortBy === 'type'}" (click)="updateSort('type')" class="btn btn-link col small">Type <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('type', false), 'ion-ios-arrow-up' : !arrowDesc('type', false) }"></span></button>
         <button [ngClass]="{'current': sortBy === 'complainer'}" (click)="updateSort('complainer')" class="btn btn-link col small">Complainer <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('complainer', false), 'ion-ios-arrow-up' : !arrowDesc('complainer', false) }"></span></button>
         <button [ngClass]="{'current': sortBy === 'complainee'}" (click)="updateSort('complainee')" class="btn btn-link col small">Complainee <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('complainee', false), 'ion-ios-arrow-up' : !arrowDesc('complainee', false) }"></span></button>
+        <button [ngClass]="{'current': sortBy === 'email'}" (click)="updateSort('email')" class="btn btn-link col large">Email <span [ngClass]="{'ion-ios-arrow-down' : arrowDesc('email', false), 'ion-ios-arrow-up' : !arrowDesc('email', false) }"></span></button>
         <div class="col large">Comments</div>
       </div>
       <div *ngFor="let issue of (apiService.rawIssues | async) | appFilter:termSearch:currentStatus:typeFilter:filteredMeta | appSort:sortBy:desc" class="row">
@@ -46,9 +47,10 @@
         <div class="col small">{{issue.type}}</div>
         <div class="col small">{{issue.complainer}}</div>
         <div class="col small">{{issue.complainee}}</div>
+        <div class="col large">{{issue.email}}</div>
         <div class="col large comments-container" [ngClass]="{'expanded': issue.expand === true}">
           <span class="comments">{{issue.comments}}</span> 
-          <button *ngIf="issue.comments.length > 39" class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
+          <button *ngIf="issue.comments.length > 30" class="expand-button btn btn-link" (click)="issue.expand = !issue.expand">{{ issue.expand !== true ? 'More' : 'Less'}}</button>
         </div>
       </div>
     </div>
