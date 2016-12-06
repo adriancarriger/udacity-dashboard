@@ -1,6 +1,6 @@
 # Udacity Dashboard
 
-This is my fourth of five projects in the Udacity [Senior Web Developer Nanodegree](https://www.udacity.com/course/senior-web-developer-nanodegree--nd802) program. This is a work in progress.
+This is my fourth of five projects in the Udacity [Senior Web Developer Nanodegree](https://www.udacity.com/course/senior-web-developer-nanodegree--nd802) program.
 
 ## Demo
 
