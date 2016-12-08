@@ -7,9 +7,9 @@ This is my fourth of five projects in the Udacity [Senior Web Developer Nanodegr
 Checkout the demo at: [https://adriancarriger.github.io/udacity-dashboard/](https://adriancarriger.github.io/udacity-dashboard/)
 
 <a href="https://adriancarriger.github.io/udacity-dashboard/">
-  <img alt="recipe page top" src="https://raw.githubusercontent.com/adriancarriger/udacity-dashboard/master/images/example-1.png" width="200px">
-  <img alt="recipe page steps" src="https://raw.githubusercontent.com/adriancarriger/udacity-dashboard/master/images/example-2.png" width="200px">
-  <img alt="home page" src="https://raw.githubusercontent.com/adriancarriger/udacity-dashboard/master/images/example-3.png" width="200px">
+  <img alt="key metrics" src="https://raw.githubusercontent.com/adriancarriger/udacity-dashboard/master/images/example-1.png" width="200px">
+  <img alt="geospacial" src="https://raw.githubusercontent.com/adriancarriger/udacity-dashboard/master/images/example-2.png" width="200px">
+  <img alt="data view" src="https://raw.githubusercontent.com/adriancarriger/udacity-dashboard/master/images/example-3.png" width="200px">
 </a>
 
 [![Example Gif](https://raw.githubusercontent.com/adriancarriger/udacity-dashboard/master/images/example.gif)](https://adriancarriger.github.io/udacity-dashboard/)
